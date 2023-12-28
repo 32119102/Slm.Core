@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sys.Domain.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:Sys.Domain.Shared.Company.CompanyStatusEnum">
+            <summary>
+            企业状态
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Company.CompanyStatusEnum.UnKnown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Company.CompanyStatusEnum.Disable">
+            <summary>
+            禁用
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Company.CompanyStatusEnum.Enable">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.SsyAreaConst.Area">
+            <summary>
+            占位符
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Shared.SysDomainSharedModule">
+            <summary>
+            枚举模块设置
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Shared.Tenant.TenantTypeEnum">
+            <summary>
+            租户类型枚举
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Tenant.TenantTypeEnum.UnKnown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Tenant.TenantTypeEnum.Id">
+            <summary>
+            Id隔离
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Tenant.TenantTypeEnum.Db">
+            <summary>
+            库隔离
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,15 @@
+{
+  "Jwt": {
+    "Key": "twAJ$j5##pVc5*y&",
+
+    "Issuer": "http://127.0.0.1:6221",
+
+    "Audience": "http://127.0.0.1:6221",
+    //token����ʱ��
+    "Expires": 1440,
+    //ˢ��token����ʱ��
+    "RefreshTokenExpires": 7
+
+  }
+
+}

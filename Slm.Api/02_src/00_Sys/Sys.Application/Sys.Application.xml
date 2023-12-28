@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sys.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Sys.Application.Api.ApiService">
+            <summary>
+            接口API服务
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.ApiService._apiRepository">
+            <summary>
+            接口API仓储
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.ApiService._swaggerGenerator">
+            <summary>
+            swagger获取
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Api.ApiService.SyncAsync">
+            <summary>
+            同步
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Api.ApiService.TreeTable">
+            <summary>
+            获取树形table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.OutApiTreeTableDto.Key">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Api.MapsterConfig">
+            <summary>
+            映射
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Authorize.AuthorizeService">
+            <summary>
+            认证服务
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Authorize.AuthorizeService.AbpLazyServiceProvider">
+            <summary>
+            赖解析
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Authorize.AuthorizeService.Login">
+            <summary>
+            登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Application.Company.Dto.InCompanyDto">
+            <summary>
+            新增.编辑 Dto
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.ShortName">
+            <summary>
+            简称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.Type">
+            <summary>
+            企业类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.SocialCreditCode">
+            <summary>
+            统一信用代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.LinkPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.LinkPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.LinkEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.Address">
+            <summary>
+            企业地址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.UrlAddress">
+            <summary>
+            企业网址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanyDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Company.Dto.InCompanySearchDto">
+            <summary>
+            查询Dto
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanySearchDto.Code">
+            <summary>
+            企业代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.InCompanySearchDto.Name">
+            <summary>
+            企业名称
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Company.Dto.OutCompanyDto">
+            <summary>
+             返回详情Dto
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.CmpId">
+            <summary>
+            企业ID
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.ShortName">
+            <summary>
+            简称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.Type">
+            <summary>
+            企业类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.SocialCreditCode">
+            <summary>
+            统一信用代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.LinkPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.LinkPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.LinkEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.Address">
+            <summary>
+            企业地址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.UrlAddress">
+            <summary>
+            企业网址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Company.Dto.OutCompanyTableDto">
+            <summary>
+            表格Dto
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.CmpId">
+            <summary>
+            企业ID
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.Code">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.ShortName">
+            <summary>
+            简称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.Type">
+            <summary>
+            企业类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.SocialCreditCode">
+            <summary>
+            统一信用代码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.LinkPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.LinkPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.LinkEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.Address">
+            <summary>
+            企业地址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.UrlAddress">
+            <summary>
+            企业网址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Company.Dto.OutCompanyTableDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Company.Event.AddCompanyEvent">
+            <summary>
+            新增公司事件参数
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Company.Event.AddCompanyEvent.AddCompanyEventHandler">
+            <summary>
+            新增公司事件处理
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Company.Event.AddCompanyEvent.AddCompanyEventHandler.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Company.Event.AddCompanyEvent.AddCompanyEventHandler.Handle(Sys.Application.Company.Event.AddCompanyEvent,System.Threading.CancellationToken)">
+            <summary>
+            事件处理
+            </summary>
+            <param name="dto"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Application.Company.MapsterConfig">
+            <summary>
+            映射
+            </summary>
+        </member>
+        <member name="T:Sys.Application.SysApplicationModule">
+            <summary>
+            服务实现
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.Dto.InTenantDto">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.Dto.InTenantSearchDto">
+            <summary>
+            查询
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.Dto.OutTenantDto">
+            <summary>
+            详情
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.Dto.OutTenantTableDto">
+            <summary>
+            表格Dto
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.TenantService">
+            <summary>
+            租户服务
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.Validators.InTenantDtoValidator">
+            <summary>
+            租户新增验证
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Tenant.MapsterConfig">
+            <summary>
+            映射
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,8 @@
+﻿Slm.Api/.vs
+Slm.Api/_packages
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+Slm.Api/01_host/Slm.HttpApi.Host/wwwroot/Log

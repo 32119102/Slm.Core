@@ -1,0 +1,14 @@
+{
+  "Swashbuckle": {
+    "SwashbuckleConfigs": [
+      {
+        "Code": "Sys",
+        "Version": "1.0",
+        "Name": "基础管理",
+        "Description": "基础管理",
+        //"AssemblyName": [ "Utils.Core", "Data.Core", "Sys.HttpApi", "Sys.Application", "Sys.Domain", "Sys.Domain.Shared" ]
+      }
+    ]
+
+  } 
+}

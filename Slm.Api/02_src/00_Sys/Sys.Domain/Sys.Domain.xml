@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sys.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Sys.Domain.Api.ApiEntity">
+            <summary>
+            租户表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.ParentId">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Label">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Path">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.HttpMethods">
+            <summary>
+            http类型
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Api.ApiEntity.Children">
+            <summary>
+            树行
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Api.IApiRepository">
+            <summary>
+            接口api仓储
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Api.IApiRepository.TreeTable">
+            <summary>
+            树形table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Company.CompanyEntity">
+            <summary>
+            企业信息
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.Code">
+            <summary>
+            企业代码
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.Name">
+            <summary>
+            企业名称
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.ShortName">
+            <summary>
+            简称
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.Status">
+            <summary>
+            企业状态
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.Type">
+            <summary>
+            企业类型，来自代码表
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.SocialCreditCode">
+            <summary>
+            统一社会信用代码
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.LinkPerson">
+            <summary>
+            联系人
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.LinkPhone">
+            <summary>
+            联系电话，多个逗号分隔
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.LinkEmail">
+            <summary>
+            联系邮箱
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.UrlAddress">
+            <summary>
+            企业网址
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.Address">
+            <summary>
+            企业地址
+            </summary>			
+        </member>
+        <member name="P:Sys.Domain.Company.CompanyEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Company.ICompanyRepository">
+            <summary>
+            企业仓储
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.SysDbContext">
+            <summary>
+            使用上下文
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.SysDomainModule">
+            <summary>
+            领域接口实体层
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Tenant.ITenantRepository">
+            <summary>
+            租户仓储
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Tenant.TenantEntity">
+            <summary>
+            租户表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.TenantType">
+            <summary>
+            租户类型(0.Id;1.Db;)
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.DbType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.Connection">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.ConfigId">
+            <summary>
+            数据库标识
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.TestA.TestAEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+    </members>
+</doc>
