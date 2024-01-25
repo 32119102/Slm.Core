@@ -24,6 +24,31 @@
             启用
             </summary>
         </member>
+        <member name="T:Sys.Domain.Shared.Menu.MenuTypeEnum">
+            <summary>
+            类型(0.目录;1.菜单;2.按钮;)枚举
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Menu.MenuTypeEnum.UnKnown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Menu.MenuTypeEnum.Catalogue">
+            <summary>
+            目录
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Menu.MenuTypeEnum.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Menu.MenuTypeEnum.Button">
+            <summary>
+            按钮
+            </summary>
+        </member>
         <member name="F:Sys.Domain.Shared.SsyAreaConst.Area">
             <summary>
             占位符

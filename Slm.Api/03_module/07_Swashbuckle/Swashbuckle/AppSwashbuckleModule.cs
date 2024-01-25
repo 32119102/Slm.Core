@@ -1,4 +1,4 @@
-﻿using IGeekFan.AspNetCore.Knife4jUI;
+﻿
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -19,7 +19,6 @@ using System.Diagnostics;
 using System.Net.WebSockets;
 using System.Reflection;
 using System.Text.RegularExpressions;
-
 namespace Slm.Swashbuckle;
 
 public class AppSwashbuckleModule : AppModule
@@ -36,7 +35,7 @@ public class AppSwashbuckleModule : AppModule
             AssemblyHelper assemblyHelper = new AssemblyHelper();
 
             var swaggers = App.GetOptions<SwashbuckleOptions>();
-           
+
             foreach (var item in swaggers.SwashbuckleConfigs)
             {
                 c.SwaggerDoc(item.Code, new OpenApiInfo
@@ -55,13 +54,12 @@ public class AppSwashbuckleModule : AppModule
                 }
             }
 
-            c.CustomOperationIds(apiDesc =>
-            {
-                var controllerAction = apiDesc.ActionDescriptor as ControllerActionDescriptor;
-                return controllerAction.ActionName;
-            });
-
-
+            #region 移除
+            //c.CustomOperationIds(apiDesc =>
+            //{
+            //    var controllerAction = apiDesc.ActionDescriptor as ControllerActionDescriptor;
+            //    return controllerAction.ActionName;
+            //});
             ////接口全路径
             //c.CustomOperationIds(apiDesc =>
             //{
@@ -97,6 +95,7 @@ public class AppSwashbuckleModule : AppModule
             //    return DefaultSchemaIdSelector(modelType);
             //});
 
+            #endregion
 
 
             // 动态webapi需要
@@ -177,8 +176,24 @@ public class AppSwashbuckleModule : AppModule
     public override void OnApplicationConfigure()
     {
 
-      
+
         InternalApp.ApplicationBuilder!.UseSwagger();
+        //InternalApp.ApplicationBuilder!.UseSwaggerUI(c =>
+        //{
+        //    var swaggers = App.GetOptions<SwashbuckleOptions>();
+        //    foreach (var item in swaggers.SwashbuckleConfigs)
+        //    {
+        //        c.SwaggerEndpoint($"/swagger/{item.Code}/swagger.json", $"{item.Name}({item.Code})");
+        //    }
+        //    //启用过滤
+        //    c.EnableFilter();
+        //    //c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+        //    //model删除
+        //    c.DefaultModelsExpandDepth(-1);
+        //    c.RoutePrefix = string.Empty;
+        //});
+
+
         InternalApp.ApplicationBuilder!.UseKnife4UI(c =>
         {
             var swaggers = App.GetOptions<SwashbuckleOptions>();
@@ -186,13 +201,14 @@ public class AppSwashbuckleModule : AppModule
             {
                 c.SwaggerEndpoint($"/swagger/{item.Code}/swagger.json", $"{item.Name}({item.Code})");
             }
-            //启用过滤
-            //c.EnableFilter();
-            c.DocExpansion(IGeekFan.AspNetCore.Knife4jUI.DocExpansion.None);
-            //model删除
-            c.DefaultModelsExpandDepth(-1);
+            ////启用过滤
+            ////c.EnableFilter();
+            //c.DocExpansion(DocExpansion.None);
+            ////model删除
+            //c.DefaultModelsExpandDepth(-1);
             c.RoutePrefix = string.Empty;
         });
+
 
         ConsoleHelper.WriteColorLine("AppSwashbuckleModule(OnApplicationConfigure)==========", ConsoleColor.Green);
         ConsoleHelper.WriteColorLine("Swagger中间件设置", ConsoleColor.Green);

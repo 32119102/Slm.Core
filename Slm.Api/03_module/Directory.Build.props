@@ -7,11 +7,9 @@
     <Authors>Slm</Authors>
     <!--取消警告-->
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <LangVersion>Latest</LangVersion>
-    <!--使用全局 using 命名空间-->
-    <ImplicitUsings>true</ImplicitUsings>
+
+ 
     <!--目标版本-->
-    <!--<TargetFramework>netstandard2.1</TargetFramework>-->
     <!--<PublishRepositoryUrl>true</PublishRepositoryUrl>-->
     <IncludeSymbols>true</IncludeSymbols>
     <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
@@ -29,6 +27,13 @@
     <Copyright>Copyright：2021-2099</Copyright>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl></RepositoryUrl>
+    
+    <!--框架问题-->
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <!--使用全局 using 命名空间-->
+    <ImplicitUsings>true</ImplicitUsings>
+    <LangVersion>Latest</LangVersion>
   </PropertyGroup>
 	<ItemGroup>
 	<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">

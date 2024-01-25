@@ -7,15 +7,16 @@ using Sys.Domain.Api;
 using Sys.Application.Api.Dto;
 using Swashbuckle.AspNetCore.Swagger;
 using Slm.Swashbuckle.Options;
+using Microsoft.OpenApi.Models;
 using Slm.Utils.Core.Helpers;
 using Slm.Utils.Core;
 using Microsoft.AspNetCore.Mvc;
 using Yitter.IdGenerator;
-using Microsoft.OpenApi.Models;
+
 using Slm.Utils.Core.Extensions;
-using SQLitePCL;
 using Slm.Data.Abstractions.Attributes;
 using Sys.Domain.TestA;
+using Slm.Utils.Core.Models;
 
 namespace Sys.Application.Api;
 
@@ -71,8 +72,6 @@ public class ApiService : ServiceAbstract<ApiEntity, InApiDto, OutApiDto, InApiS
 
         return true;
     }
-
-
 
     /// <summary>
     /// 同步
@@ -209,7 +208,6 @@ public class ApiService : ServiceAbstract<ApiEntity, InApiDto, OutApiDto, InApiS
 
         return true;
     }
-
     /// <summary>
     /// 获取树形table
     /// </summary>
@@ -223,7 +221,18 @@ public class ApiService : ServiceAbstract<ApiEntity, InApiDto, OutApiDto, InApiS
         return result;
     }
 
-
+    /// <summary>
+    /// 获取级联select
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Order(2)]
+    public async Task<List<OutCascaderDto>> CascaderSelect()
+    {
+        var trees = await _apiRepository.TreeTable();
+        var result = _mapper.Map<List<OutCascaderDto>>(trees);
+        return result;
+    }
 
 
 }
