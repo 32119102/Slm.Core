@@ -2,25 +2,27 @@
 
 namespace Slm.Utils.Core.Models;
 
+public enum CodeEnum
+{
+    SUCCESS = 0,
+    ERROR = -1
+}
+
 /// <summary>
 /// 返回结果
 /// </summary>
 public class ResultModel<T>
 {
-    /// <summary>
-    /// 处理是否成功
-    /// </summary>
-    public bool Successful { get; set; }
 
     /// <summary>
     /// 错误信息
     /// </summary>
-    public string Msg { get; set; }
+    public string Message { get; set; }
 
     /// <summary>
     /// 业务码
     /// </summary>
-    public string Code { get; set; }
+    public CodeEnum Code { get; set; }
 
     /// <summary>
     /// 时间戳
@@ -30,7 +32,7 @@ public class ResultModel<T>
     /// <summary>
     /// 返回数据
     /// </summary>
-    public T Data { get; set; }
+    public T Result { get; set; }
 
     /// <summary>
     /// 成功
@@ -39,10 +41,9 @@ public class ResultModel<T>
     /// <param name="msg">说明</param>
     public ResultModel<T> Success(T data = default, string msg = "success")
     {
-        Successful = true;
-        Data = data;
-        Msg = msg;
-
+        Result = data;
+        Message = msg;
+        Code = CodeEnum.SUCCESS;
         return this;
     }
 
@@ -52,8 +53,8 @@ public class ResultModel<T>
     /// <param name="msg">说明</param>
     public ResultModel<T> Failed(string msg = "failed")
     {
-        Successful = false;
-        Msg = msg;
+        Code = CodeEnum.ERROR;
+        Message = msg;
         return this;
     }
 

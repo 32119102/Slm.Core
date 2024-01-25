@@ -15,7 +15,7 @@ public class ApiRepository : RepositoryAbstract<ApiEntity>, IApiRepository
 
     public Task<List<ApiEntity>> TreeTable()
     {
-        return AsQueryable().ToTreeAsync(a => a.Children, a => a.ParentId, 0);
+        return AsQueryable().OrderBy(a => a.Sort).ToTreeAsync(a => a.Children, a => a.ParentId, 0);
     }
 
 

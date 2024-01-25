@@ -42,17 +42,23 @@ public class TransactionInterceptor : IInterceptor
                 if (invocation.Method.IsAsyncMethod())
                 {
                     dynamic result = invocation.ReturnValue;
-
-                    //等待完成
-                    Task.WaitAll(result as Task);
-                    if (result.Result.Successful)
+                    if (result.Exception != null)
                     {
-                        _tran.CommitTran();
-                    }
-                    else
-                    {
+                        ConsoleHelper.WriteErrorLine("Rollback Transaction");
                         _tran.RollbackTran();
                     }
+                    //等待完成
+                    Task.WaitAll(result as Task);
+                    _tran.CommitTran();
+                    ConsoleHelper.WriteErrorLine("aop事务完成");
+                    //if (result.Result.Successful)
+                    //{
+                    //    _tran.CommitTran();
+                    //}
+                    //else
+                    //{
+                    //    _tran.RollbackTran();
+                    //}
                 }
                 else
                 {

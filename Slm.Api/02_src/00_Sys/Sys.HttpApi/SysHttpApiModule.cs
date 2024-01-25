@@ -1,7 +1,5 @@
 ﻿using Slm.Modularity.Abstractions;
 using Slm.Modularity.Core;
-using Slm.Swashbuckle;
-using Slm.Swashbuckle.Options;
 using Slm.Utils.Core.Helpers;
 using Sys.Application;
 using Sys.Domain.Sqlsugar;

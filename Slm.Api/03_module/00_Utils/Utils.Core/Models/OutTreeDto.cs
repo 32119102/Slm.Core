@@ -16,3 +16,17 @@ public class OutTreeDto
     public List<OutTreeDto> Children { get; set; }
 
 }
+
+
+public class OutCascaderDto
+{
+    public dynamic Value { get; set; }
+
+
+    public string Label { get; set; }
+
+    public bool Disabled { get; set; }
+
+    public List<OutCascaderDto> Children { get; set; }
+
+}

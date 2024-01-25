@@ -135,6 +135,122 @@
             企业仓储
             </summary>
         </member>
+        <member name="T:Sys.Domain.Menu2Api.IMenu2ApiRepository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Menu2Api.Menu2ApiEntity">
+            <summary>
+            租户表
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Menu.IMenuRepository">
+            <summary>
+            菜单仓储
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Menu.IMenuRepository.TreeTable(System.Linq.Expressions.Expression{System.Func{Sys.Domain.Menu.MenuEntity,System.Boolean}})">
+            <summary>
+            树形table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Menu.MenuEntity">
+            <summary>
+            租户表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.ParentId">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Name">
+            <summary>
+            编码(唯一值)
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Type">
+            <summary>
+            类型(0.目录;1.菜单;2.按钮;)
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Redirect">
+            <summary>
+            回调地址(用于前端面包屑)
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.IsHide">
+            <summary>
+            隐藏菜单
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.IsFrame">
+            <summary>
+            是否外链
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.FrameSrc">
+            <summary>
+            链接地址
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.IsKeepAlive">
+            <summary>
+            是否页面缓存
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.IsAffix">
+            <summary>
+            是否固定
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.ButtonCode">
+            <summary>
+            按钮编码
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Menu.MenuEntity.Children">
+            <summary>
+            树行
+            </summary>
+        </member>
         <member name="T:Sys.Domain.SysDbContext">
             <summary>
             使用上下文

@@ -13,13 +13,18 @@ using Microsoft.Extensions.Logging;
 using Slm.Utils.Core.Extensions;
 using Slm.Utils.Core.Const;
 using Slm.Auth.Abstractions;
+#if NET8_0
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Slm.Swashbuckle;
+using Swashbuckle.AspNetCore.Swagger;
+using Slm.Swashbuckle.Options;
+#endif
+
 using Slm.Data.Core.Extensions;
 using Slm.Utils.Core.Helpers;
-using Swashbuckle.AspNetCore.Swagger;
+
 using Slm.Utils.Core;
-using Slm.Swashbuckle.Options;
+
 
 namespace Sys.Application.Authorize;
 

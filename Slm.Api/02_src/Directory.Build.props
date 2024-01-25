@@ -1,0 +1,14 @@
+﻿<!--用于包的统一管理-->
+<Project>
+  <PropertyGroup>
+
+    <!--框架问题-->
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <!--使用全局 using 命名空间-->
+    <ImplicitUsings>true</ImplicitUsings>
+    <LangVersion>Latest</LangVersion>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+</Project>

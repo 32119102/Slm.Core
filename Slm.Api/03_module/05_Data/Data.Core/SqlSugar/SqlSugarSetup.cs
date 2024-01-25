@@ -218,7 +218,6 @@ public static class SqlSugarSetup
                 if (App.User != null)
                 {
                     var s = entityInfo.GetAttribute<TableFieldAttribute>();
-
                     if (s != null)
                     {
 

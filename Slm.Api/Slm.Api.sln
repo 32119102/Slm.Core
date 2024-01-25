@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_module", "03_module", "{ED50B907-02F5-4B58-8897-7747A229572D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_src", "02_src", "{975B4C1B-D90E-4FDE-9BE7-F932EE7B3E8F}"
+	ProjectSection(SolutionItems) = preProject
+		02_src\Directory.Build.props = 02_src\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_host", "01_host", "{1933C461-B4C3-4FC4-A646-0090723F4D70}"
 EndProject
