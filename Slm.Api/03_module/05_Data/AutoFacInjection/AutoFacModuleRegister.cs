@@ -46,18 +46,18 @@ public class AutoFacModuleRegister : Autofac.Module
             .Where(m => m.Name.EndsWith("Service") && !m.IsInterface)
             .AsImplementedInterfaces()
                  .PropertiesAutowired()// 属性注入
-            .InstancePerLifetimeScope()
-            .InterceptedBy(interceptorServiceTypes.ToArray())
-            .EnableInterfaceInterceptors();
+            .InstancePerLifetimeScope();
+            //.InterceptedBy(interceptorServiceTypes.ToArray())
+            //.EnableInterfaceInterceptors();
 
 
             //无接口实例---执行方法需要是 virtual
             builder.RegisterAssemblyTypes(assembly!)
             .Where(m => m.Name.EndsWith("Service") && !m.IsInterface)
             .InstancePerLifetimeScope()
-             .PropertiesAutowired()// 属性注入
-            .InterceptedBy(interceptorServiceTypes.ToArray())
-            .EnableClassInterceptors();
+             .PropertiesAutowired();// 属性注入
+            //.InterceptedBy(interceptorServiceTypes.ToArray())
+            //.EnableClassInterceptors();
 
         }
 

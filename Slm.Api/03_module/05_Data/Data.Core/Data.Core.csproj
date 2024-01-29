@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Data.Abstractions\Data.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Aop\" />
+  </ItemGroup>
+
 </Project>

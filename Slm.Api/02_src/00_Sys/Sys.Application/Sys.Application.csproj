@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Rougamo.Fody" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
 
     <ProjectReference Include="..\..\..\03_module\07_Swashbuckle\Swashbuckle\Swashbuckle.csproj" />
 
