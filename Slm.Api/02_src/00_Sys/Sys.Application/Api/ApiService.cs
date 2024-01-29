@@ -42,15 +42,13 @@ public class ApiService : ServiceAbstract<ApiEntity, InApiDto, OutApiDto, InApiS
     public ITestARepository _testARepository => AbpLazyServiceProvider.LazyGetRequiredService<ITestARepository>();
 
 
-
-
     /// <summary>
     /// 多库事务
     /// </summary>
     /// <returns></returns>
     [HttpGet]
     [Transaction]
-    public virtual async Task<bool> Test()
+    public  async Task<bool> Test()
     {
         var dd = await _testARepository.GetListAsync();
         await _testARepository.InsertAsync(new TestAEntity

@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Rougamo.Fody" Version="2.2.0" />
     <PackageReference Include="SqlSugarCore" Version="5.1.4.112" />
     <PackageReference Include="Yitter.IdGenerator" Version="1.0.14" />
   </ItemGroup>
