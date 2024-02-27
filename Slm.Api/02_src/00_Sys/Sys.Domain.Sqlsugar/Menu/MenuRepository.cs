@@ -24,9 +24,15 @@ public class MenuRepository : RepositoryAbstract<MenuEntity>, IMenuRepository
     /// <returns></returns>
     public Task<List<MenuEntity>> TreeTable(Expression<Func<MenuEntity, bool>> whereExpression = null)
     {
-        return AsQueryable().WhereIF(whereExpression!=null,whereExpression).ToTreeAsync(a => a.Children, a => a.ParentId, 0);
+        return AsQueryable().WhereIF(whereExpression != null, whereExpression).OrderBy(a => a.Sort).ToTreeAsync(a => a.Children, a => a.ParentId, 0);
     }
 
+
+
+    //public Task<List<>> GetLeftMenuAsync() 
+    //{
+
+    //}
 
 }
 

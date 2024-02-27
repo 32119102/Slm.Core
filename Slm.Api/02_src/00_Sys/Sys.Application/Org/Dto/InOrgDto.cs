@@ -1,17 +1,18 @@
-﻿using Sys.Domain.Shared.Tenant;
+﻿using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sys.Application.Tenant.Dto;
+namespace Sys.Application.Org.Dto;
 
-/// <summary>
-/// 新增
-/// </summary>
-public class InTenantDto
+public class InOrgDto
 {
+    /// <summary>
+    /// 父级id
+    /// </summary>
+    public long? Pid { get; set; }
 
     /// <summary>
     /// 名称
@@ -24,29 +25,22 @@ public class InTenantDto
     public string? Code { get; set; }
 
     /// <summary>
-    /// 租户类型(0.Id;1.Db;)
+    /// 等级
     /// </summary>
-    public TenantTypeEnum TenantType { get; set; }
+    public int? Level { get; set; }
 
     /// <summary>
-    /// 数据库类型
+    /// 排序
     /// </summary>
-    public SqlSugar.DbType DbType { get; set; }
+    public int? Sort { get; set; }
 
     /// <summary>
     /// 数据库连接
     /// </summary>
-    public string? Connection { get; set; }
-
-    /// <summary>
-    /// 数据库标识
-    /// </summary>
-    public string? ConfigId { get; set; }
+    public string? Remark { get; set; }
 
     /// <summary>
     /// 是否启用
     /// </summary>
     public bool IsEnable { get; set; }
-
-
 }

@@ -18,6 +18,11 @@ public class OutMenuTreeTableDto
     public string? Title { get; set; }
 
     /// <summary>
+    /// 路径
+    /// </summary>
+    public string? Path { get; set; }
+
+    /// <summary>
     /// 组件
     /// </summary>
     public string? Component { get; set; }

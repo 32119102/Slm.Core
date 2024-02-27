@@ -13,7 +13,7 @@ public partial  class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnt
     /// <param name="dto"></param>
     /// <returns></returns>
     [HttpPut("{id}")]
-    [Order(5)]
+    [Order(301)]
     public virtual async Task<bool> UpdateAsync(TKey id, TEntityInput dto)
     {
         var entity = await _repositoriesBase.GetAsync(id!);

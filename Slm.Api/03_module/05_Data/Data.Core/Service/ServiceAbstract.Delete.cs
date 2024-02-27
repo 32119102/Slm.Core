@@ -17,7 +17,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    [Order(6)]
+    [Order(401)]
     public async Task<bool> DelAsync(TKey id)
     {
         return await _repositoriesBase.FalseDeletesAsync(new object[] { id! });
@@ -29,7 +29,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// <param name="dto"></param>
     /// <returns></returns>
     [HttpDelete]
-    [Order(7)]
+    [Order(402)]
     public async Task<bool> BatchDelAsync([FromBody] InDelDto dto)
     {
         return await _repositoriesBase.FalseDeletesAsync(dto.Ids);

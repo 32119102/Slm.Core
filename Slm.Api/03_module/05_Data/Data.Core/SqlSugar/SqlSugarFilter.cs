@@ -19,7 +19,8 @@ public class SqlSugarFilter
     /// </summary>
     /// <param name="userId"></param>
     /// <param name="dbConfigId"></param>
-    public static void DeleteUserOrgCache(long userId, string dbConfigId)
+    public 
+        static void DeleteUserOrgCache(long userId, string dbConfigId)
     {
 
     }

@@ -38,7 +38,7 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    [Order(1)]
+    [Order(110)]
     public async Task<List<OutMenuTreeTableDto>> TreeTable()
     {
         var trees = await _menuRepository.TreeTable();
@@ -52,10 +52,10 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    [Order(2)]
+    [Order(111)]
     public async Task<List<OutCascaderDto>> CascaderSelect()
     {
-        var trees = await _menuRepository.TreeTable(a=>a.Type!= MenuTypeEnum.Button);
+        var trees = await _menuRepository.TreeTable(a => a.Type != MenuTypeEnum.Button);
         var result = _mapper.Map<List<OutCascaderDto>>(trees);
         return result;
     }
@@ -65,9 +65,9 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    [Order(3)]
+    //[Order(201)]
     [Transaction]
-    public  override  async Task<dynamic> AddAsync(InMenuDto dto)
+    public override async Task<dynamic> AddAsync(InMenuDto dto)
     {
         var entity = _mapper.Map<MenuEntity>(dto);
         long id = await _menuRepository.InsertReturnSnowflakeIdAsync(entity);
@@ -84,12 +84,17 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
                 menuEntity.Title = item.Title;
                 menuEntity.ButtonCode = item.ButtonCode;
                 menuEntity.Sort = item.Sort;
+                menuEntity.IsEnable = true;
                 menuEntities.Add(menuEntity);
 
-                Menu2ApiEntity menu2ApiEntity = new Menu2ApiEntity();
-                menu2ApiEntity.MenuId = menuEntity.Id;
-                menu2ApiEntity.ApiId = item.ApiId.Value;
-                menu2ApiEntities.Add(menu2ApiEntity);
+                if (item.ApiId.HasValue) 
+                {
+                    Menu2ApiEntity menu2ApiEntity = new Menu2ApiEntity();
+                    menu2ApiEntity.MenuId = menuEntity.Id;
+                    menu2ApiEntity.ApiId = item.ApiId.Value;
+                    menu2ApiEntities.Add(menu2ApiEntity);
+                }
+                
 
             }
             await _menuRepository.InsertRangeAsync(menuEntities);
@@ -103,4 +108,18 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     }
 
 
+    /// <summary>
+    /// 获取左侧菜单
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [Order(55)]
+    public async Task<List<OutLeftMenuDto>> GetLeftMenu() 
+    {
+        var trees = await _menuRepository.TreeTable(a => a.Type != MenuTypeEnum.Button);
+        var result = _mapper.Map<List<OutLeftMenuDto>>(trees);
+        return result;
+
+
+    }
 }

@@ -65,7 +65,7 @@ public partial class MenuEntity : EntityBase<long>
     public bool IsHide { get; set; }
 
     /// <summary>
-    /// 是否外链
+    /// 是否内嵌
     /// </summary>
     public bool IsFrame { get; set; }
     
