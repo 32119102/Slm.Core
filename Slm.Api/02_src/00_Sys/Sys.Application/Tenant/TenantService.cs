@@ -18,9 +18,24 @@ namespace Sys.Application.Tenant;
 [AllowAnonymous]
 public class TenantService : ServiceAbstract<TenantEntity, InTenantDto, OutTenantDto, InTenantSearchDto, OutTenantTableDto, long>, IDynamicApi
 {
-
-
-
+    /// <summary>
+    /// 菜单仓储
+    /// </summary>
+    public ITenantRepository _tenantRepository => AbpLazyServiceProvider.LazyGetRequiredService<ITenantRepository>();
+  
+    /// <summary>
+    /// 更新状态
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    public async Task<bool> IsEnable(InIsEnableDto dto)
+    {
+        await _tenantRepository.UpdateSetColumnsTrueAsync(a => new TenantEntity
+        {
+            IsEnable = !a.IsEnable
+        }, a => a.Id == dto.Id);
+        return true;
+    }
 
 
 

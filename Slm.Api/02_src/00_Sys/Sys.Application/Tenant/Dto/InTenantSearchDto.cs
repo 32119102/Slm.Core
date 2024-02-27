@@ -17,9 +17,9 @@ public class InTenantSearchDto : QueryDto
     //[Search(ConditionalType = SlmConditionalType.Equal, FieldName = "Code")]
     //public string? Code { get; set; }
 
-    ///// <summary>
-    ///// 企业名称
-    ///// </summary>
-    //[Search(ConditionalType = SlmConditionalType.Like, FieldName = "Name")]
-    //public string? Name { get; set; }
+    /// <summary>
+    /// 企业名称
+    /// </summary>
+    [Search(ConditionalType = SlmConditionalType.Like)]
+    public string? Name { get; set; }
 }

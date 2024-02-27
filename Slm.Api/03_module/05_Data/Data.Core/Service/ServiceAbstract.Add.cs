@@ -15,7 +15,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// </summary>
     /// <param name="dto">dto</param>
     /// <returns></returns>
-    [Order(3)]
+    [Order(201)]
     public virtual async Task<dynamic> AddAsync(TEntityInput dto)
     {
         var entity = _mapper.Map<TEntity>(dto);
@@ -41,7 +41,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// </summary>
     /// <param name="dtos">实体集合</param>
     /// <returns>影响行数</returns>
-    [Order(4)]
+    [Order(202)]
     public virtual async Task<bool> BulkAddAsync(List<TEntityInput> dtos)
     {
         var entitys = _mapper.Map<List<TEntity>>(dtos);

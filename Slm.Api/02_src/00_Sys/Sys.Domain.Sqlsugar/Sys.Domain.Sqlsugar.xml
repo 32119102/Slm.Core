@@ -30,6 +30,22 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Sys.Domain.Sqlsugar.Org.OrgRepository">
+            <summary>
+            机构仓储实现
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.Org.OrgRepository.TreeTable(System.Int64,System.Linq.Expressions.Expression{System.Func{Sys.Domain.Org.OrgEntity,System.Boolean}})">
+            <summary>
+            树形
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Sqlsugar.Role.RoleRepository">
+            <summary>
+            机构仓储实现
+            </summary>
+        </member>
         <member name="T:Sys.Domain.Sqlsugar.SysDomainSqlsugarModule">
             <summary>
             数据库操作

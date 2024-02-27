@@ -1,19 +1,28 @@
 ﻿using Slm.Data.Abstractions.Entities;
 using Slm.Utils.Core.Annotations;
 using SqlSugar;
-using Sys.Domain.Shared.Tenant;
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Sys.Domain.Tenant;
+namespace Sys.Domain.Org;
 
 
 /// <summary>
 /// 租户表
 /// </summary>
-[SugarTable("sys_tenant")]
+[SugarTable("sys_org")]
 [SysTable]
-public partial class TenantEntity : EntityBase<long>
+public partial class OrgEntity : EntityTenant<long>
 {
+
+    /// <summary>
+    /// 父级id
+    /// </summary>
+    [SugarColumn(ColumnName = "Pid")]
+    public long? Pid { get; set; }
 
     /// <summary>
     /// 名称
@@ -28,28 +37,22 @@ public partial class TenantEntity : EntityBase<long>
     public string? Code { get; set; }
 
     /// <summary>
-    /// 租户类型(0.Id;1.Db;)
+    /// 等级
     /// </summary>
-    [SugarColumn(ColumnName = "TenantType")]
-    public TenantTypeEnum TenantType { get; set; }
+    [SugarColumn(ColumnName = "Level")]
+    public int? Level { get; set; }
 
     /// <summary>
-    /// 数据库类型
+    /// 排序
     /// </summary>
-    [SugarColumn(ColumnName = "DbType")]
-    public SqlSugar.DbType DbType { get; set; }
+    [SugarColumn(ColumnName = "Sort")]
+    public int? Sort { get; set; }
 
     /// <summary>
     /// 数据库连接
     /// </summary>
-    [SugarColumn(ColumnName = "Connection")]
-    public string? Connection { get; set; }
-
-    /// <summary>
-    /// 数据库标识
-    /// </summary>
-    [SugarColumn(ColumnName = "ConfigId")]
-    public string? ConfigId { get; set; }
+    [SugarColumn(ColumnName = "Remark")]
+    public string? Remark { get; set; }
 
     /// <summary>
     /// 是否启用

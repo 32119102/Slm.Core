@@ -69,6 +69,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Sys.Application.Common.CommonService">
+            <summary>
+            认证服务
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Common.CommonService.EnumOptions(System.String,System.String)">
+            <summary>
+            获取枚举中选项列表
+            </summary>
+            <param name="moduleCode"></param>
+            <param name="enumName"></param>
+            <returns></returns>
+        </member>
         <member name="T:Sys.Application.Company.Dto.InCompanyDto">
             <summary>
             新增.编辑 Dto
@@ -422,9 +435,145 @@
             排序
             </summary>
         </member>
+        <member name="P:Sys.Application.Menu.Dto.OutLeftMenuDto.Name">
+            <summary>
+            主键里面声明的名称,如果是外链则给这个赋值
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutLeftMenuDto.Path">
+            <summary>
+            path随便写，但前面必须有个 `/`
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutLeftMenuDto.Component">
+            <summary>
+            可不要
+             component对应的值前不需要加 / 值对应的是实际业务 `.vue` 或 `.tsx` 代码路径
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.FrameSrc">
+            <summary>
+            内嵌
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.Rank">
+            <summary>
+            菜单排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.KeepAlive">
+            <summary>
+            是否缓存
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.ShowParent">
+            <summary>
+            是否显示父级菜单
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.MetaDto.Redirect">
+            <summary>
+            重定向(选填，如果不写则默认去第一个菜单)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.ParentId">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Name">
+            <summary>
+            编码(唯一值)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Component">
+            <summary>
+            组件
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Type">
+            <summary>
+            类型(0.目录;1.菜单;2.按钮;)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Redirect">
+            <summary>
+            回调地址(用于前端面包屑)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.IsHide">
+            <summary>
+            隐藏菜单
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.IsFrame">
+            <summary>
+            是否外链
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.FrameSrc">
+            <summary>
+            链接地址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.IsKeepAlive">
+            <summary>
+            是否页面缓存
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.IsAffix">
+            <summary>
+            是否固定
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuDto.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="P:Sys.Application.Menu.Dto.OutMenuTreeTableDto.Title">
             <summary>
             标题
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Menu.Dto.OutMenuTreeTableDto.Path">
+            <summary>
+            路径
             </summary>
         </member>
         <member name="P:Sys.Application.Menu.Dto.OutMenuTreeTableDto.Component">
@@ -486,7 +635,255 @@
             <param name="dto"></param>
             <returns></returns>
         </member>
+        <member name="M:Sys.Application.Menu.MenuService.GetLeftMenu">
+            <summary>
+            获取左侧菜单
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Sys.Application.Menu.MapsterConfig">
+            <summary>
+            映射
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.Pid">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgSearchTreeTableDto.Pid">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.InOrgSearchTreeTableDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.Pid">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgTreeTableDto.Name">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgTreeTableDto.Code">
+            <summary>
+            机构编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgTreeTableDto.Level">
+            <summary>
+            级别
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgTreeTableDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.Dto.OutOrgTreeTableDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Org.OrgService">
+            <summary>
+            机构(部门)服务
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Org.OrgService._orgRepository">
+            <summary>
+            菜单仓储
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Org.OrgService.TreeTable(Sys.Application.Org.Dto.InOrgSearchTreeTableDto)">
+            <summary>
+            获取树形table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Org.OrgService.CascaderSelect">
+            <summary>
+            获取级联select
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Application.Org.MapsterConfig">
+            <summary>
+            映射
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleSearchDto.Name">
+            <summary>
+            企业名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleSearchDto.Code">
+            <summary>
+            企业名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.DataScopeName">
+            <summary>
+            数据范围（1全部数据 2本部门及以下数据 3本部门数据 4仅本人数据 5自定义数据）
+            </summary>   
+        </member>
+        <member name="T:Sys.Application.Role.RoleService">
+            <summary>
+            角色服务
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.RoleService._roleRepository">
+            <summary>
+            角色仓储
+            </summary>
+        </member>
+        <member name="T:Sys.Application.Role.MapsterConfig">
             <summary>
             映射
             </summary>
@@ -501,9 +898,49 @@
             新增
             </summary>
         </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.TenantType">
+            <summary>
+            租户类型(0.Id;1.Db;)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.DbType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.Connection">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.ConfigId">
+            <summary>
+            数据库标识
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
         <member name="T:Sys.Application.Tenant.Dto.InTenantSearchDto">
             <summary>
             查询
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.InTenantSearchDto.Name">
+            <summary>
+            企业名称
             </summary>
         </member>
         <member name="T:Sys.Application.Tenant.Dto.OutTenantDto">
@@ -511,15 +948,97 @@
             详情
             </summary>
         </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.TenantType">
+            <summary>
+            租户类型(0.Id;1.Db;)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.DbType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.Connection">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.ConfigId">
+            <summary>
+            数据库标识
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
         <member name="T:Sys.Application.Tenant.Dto.OutTenantTableDto">
             <summary>
             表格Dto
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.TenantType">
+            <summary>
+            租户类型(0.Id;1.Db;)
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.DbType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.Connection">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.ConfigId">
+            <summary>
+            数据库标识
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.Dto.OutTenantTableDto.IsEnable">
+            <summary>
+            是否启用
             </summary>
         </member>
         <member name="T:Sys.Application.Tenant.TenantService">
             <summary>
             租户服务
             </summary>
+        </member>
+        <member name="P:Sys.Application.Tenant.TenantService._tenantRepository">
+            <summary>
+            菜单仓储
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Tenant.TenantService.IsEnable(Sys.Application.Tenant.Dto.InIsEnableDto)">
+            <summary>
+            更新状态
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
         </member>
         <member name="T:Sys.Application.Tenant.Validators.InTenantDtoValidator">
             <summary>

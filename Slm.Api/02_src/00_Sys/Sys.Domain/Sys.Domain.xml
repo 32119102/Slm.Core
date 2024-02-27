@@ -213,7 +213,7 @@
         </member>
         <member name="P:Sys.Domain.Menu.MenuEntity.IsFrame">
             <summary>
-            是否外链
+            是否内嵌
             </summary>
         </member>
         <member name="P:Sys.Domain.Menu.MenuEntity.FrameSrc">
@@ -249,6 +249,92 @@
         <member name="P:Sys.Domain.Menu.MenuEntity.Children">
             <summary>
             树行
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Org.IOrgRepository.TreeTable(System.Int64,System.Linq.Expressions.Expression{System.Func{Sys.Domain.Org.OrgEntity,System.Boolean}})">
+            <summary>
+            树形table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Org.OrgEntity">
+            <summary>
+            租户表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Pid">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Org.OrgEntity.Children">
+            <summary>
+            树行
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Role.RoleEntity">
+            <summary>
+            租户表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.DataScope">
+            <summary>
+            数据范围（1全部数据 2本部门及以下数据 3本部门数据 4仅本人数据 5自定义数据）
             </summary>
         </member>
         <member name="T:Sys.Domain.SysDbContext">
@@ -299,6 +385,11 @@
         <member name="P:Sys.Domain.Tenant.TenantEntity.ConfigId">
             <summary>
             数据库标识
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Tenant.TenantEntity.IsEnable">
+            <summary>
+            是否启用
             </summary>
         </member>
         <member name="P:Sys.Domain.TestA.TestAEntity.Name">

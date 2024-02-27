@@ -18,7 +18,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// <param name="dto"></param>
     /// <returns></returns>
     [HttpGet]
-    [Order(1)]
+    [Order(101)]
     public virtual async Task<QueryResultModel<TTableDto>> GetPageAsync(TEntitySearch dto)
     {
         List<IConditionalModel> conditionalModels = this._repositoriesBase.GetConditionals(dto);
@@ -35,7 +35,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    [Order(2)]
+    [Order(102)]
     public virtual async Task<TEntityOutput> GetAsync(TKey id)
     {
         var entity = await _repositoriesBase.GetAsync(id!);
@@ -52,7 +52,7 @@ public partial class ServiceAbstract<TEntity, TEntityInput, TEntityOutput, TEnti
     /// <returns></returns>
     [HttpGet]
     [AllowWhenAuthenticated]
-    [Order(8)]
+    [Order(103)]
     public virtual async Task<List<OptionResultModel>> GetSelectAsync()
     {
         var entity = await _repositoriesBase.GetListAsync();

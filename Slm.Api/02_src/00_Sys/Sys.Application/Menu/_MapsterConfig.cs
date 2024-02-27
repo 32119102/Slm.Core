@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using Slm.Utils.Core.Extensions;
 using Slm.Utils.Core.Models;
 using Sys.Application.Api.Dto;
 using Sys.Application.Menu.Dto;
@@ -38,6 +39,22 @@ public class MapsterConfig : IRegister
         cfg.NewConfig<MenuEntity, OutCascaderDto>()
             .Map(m => m.Value, y => y.Id)
                 .Map(m => m.Label, y => y.Title)
+            ;
+
+
+        //树形列表
+        cfg.NewConfig<MenuEntity, OutLeftMenuDto>()
+             .Map(m => m.Name, y => (y.IsFrame&&y.FrameSrc.NotNull()) ? y.FrameSrc : y.Name)
+             .Map(m => m.Meta, y => new MetaDto
+             {
+                 FrameSrc =  y.FrameSrc ,
+                 Icon = y.Icon,
+                 KeepAlive = y.IsKeepAlive,
+                 Rank = y.Sort,
+                 Redirect = y.Redirect,
+                 Title = y.Title,
+                 IsFrame = y.IsFrame,
+             })
             ;
 
     }
