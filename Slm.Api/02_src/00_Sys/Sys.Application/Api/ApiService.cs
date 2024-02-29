@@ -212,7 +212,7 @@ public class ApiService : ServiceAbstract<ApiEntity, InApiDto, OutApiDto, InApiS
     /// <returns></returns>
     [HttpGet]
     [Order(1)]
-    public async Task<List<OutApiTreeTableDto>> TreeTable()
+    public async Task<List<OutApiTreeTableDto>> TreeTable(InApiTreeTableSearchDto dto)
     {
         var trees = await _apiRepository.TreeTable();
         var result = _mapper.Map<List<OutApiTreeTableDto>>(trees);

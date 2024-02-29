@@ -27,7 +27,6 @@ public class MapsterConfig : IRegister
 
         //树形列表
         cfg.NewConfig<ApiEntity, OutApiTreeTableDto>()
-            .Map(m => m.Key, y => y.Id)
             ;
 
 

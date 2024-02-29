@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.Mvc;
 using Slm.Data.Abstractions.Attributes;
 using SqlSugar;
 using System.Runtime.InteropServices;
@@ -15,7 +16,7 @@ public abstract class Entity<TKey>
     /// <summary>
     /// 主键
     /// </summary>
-    [SugarColumn(IsPrimaryKey = true)]
+    [SugarColumn(IsPrimaryKey = true, ColumnDescription = "主键")]
     public virtual TKey Id { get; set; }
 }
 
@@ -43,7 +44,7 @@ public abstract class EntityBase<TKey> : Entity<TKey>, IDeletedFilter
     /// <summary>
     /// 创建人名称
     /// </summary>
-    [SugarColumn(ColumnDescription = "创建人名称", IsOnlyIgnoreUpdate = true)]
+    [SugarColumn(ColumnDescription = "创建人名称", IsOnlyIgnoreUpdate = true, Length = 64)]
     [TableField(HandleType = HandleTypeEnum.Add, TableType = TableTypeEnum.UserName)]
     public virtual string Creator { get; set; } = String.Empty;
 
@@ -56,7 +57,7 @@ public abstract class EntityBase<TKey> : Entity<TKey>, IDeletedFilter
     /// <summary>
     /// 修改人编号
     /// </summary>
-    [SugarColumn(ColumnDescription = "修改人编号", IsOnlyIgnoreInsert = true)]
+    [SugarColumn(ColumnDescription = "修改人编号", IsOnlyIgnoreInsert = true, IsNullable = true)]
     [TableField(HandleType = HandleTypeEnum.Edit, TableType = TableTypeEnum.UserId)]
     public virtual long? LastmodifiId { get; set; }
 
@@ -64,20 +65,21 @@ public abstract class EntityBase<TKey> : Entity<TKey>, IDeletedFilter
     /// 修改人名称
     /// </summary>
     [TableField(HandleType = HandleTypeEnum.Edit, TableType = TableTypeEnum.UserName)]
-    [SugarColumn(ColumnDescription = "修改人名称", IsOnlyIgnoreInsert = true)]
+    [SugarColumn(ColumnDescription = "修改人名称", IsOnlyIgnoreInsert = true, IsNullable = true, Length = 64)]
     public virtual string? Lastmodifier { get; set; }
 
     /// <summary>
     /// 修改时间
     /// </summary>
     [TableField(HandleType = HandleTypeEnum.Edit, TableType = TableTypeEnum.Dt)]
-    [SugarColumn(ColumnDescription = "修改时间", IsOnlyIgnoreInsert = true)]
+    [SugarColumn(ColumnDescription = "修改时间", IsOnlyIgnoreInsert = true, IsNullable = true)]
     public virtual DateTime? Lastmodified { get; set; }
 
 
     /// <summary>
-    /// 已删除的
+    /// 是否删除的
     /// </summary>
+    [SugarColumn(ColumnDescription = "是否删除", DefaultValue = "0", ColumnDataType = "bit")]
     public virtual bool IsDelete { get; set; } = false;
 
 }
@@ -93,7 +95,7 @@ public abstract class EntityBaseData<TKey> : EntityBase<TKey>, IOrgIdFilter
     /// <summary>
     /// 创建者部门Id
     /// </summary>
-    [SugarColumn(ColumnDescription = "创建者部门Id", IsOnlyIgnoreUpdate = true)]
+    [SugarColumn(ColumnDescription = "创建者部门Id", IsOnlyIgnoreUpdate = true, IsNullable = true)]
     [TableField(HandleType = HandleTypeEnum.Add, TableType = TableTypeEnum.CreatOrgId)]
     public virtual long? CreatOrgId { get; set; }
 }
@@ -107,7 +109,7 @@ public abstract class EntityTenant<TKey> : EntityBase<TKey>, ITenantIdFilter
     /// <summary>
     /// 租户Id
     /// </summary>
-    [SugarColumn(ColumnDescription = "租户Id", IsOnlyIgnoreUpdate = true)]
+    [SugarColumn(ColumnDescription = "租户Id", IsOnlyIgnoreUpdate = true, IsNullable = true)]
     [TableField(HandleType = HandleTypeEnum.Add, TableType = TableTypeEnum.TenantId)]
     public virtual long? TenantId { get; set; }
 }
