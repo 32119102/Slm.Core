@@ -9,6 +9,11 @@
             接口API仓储实现
             </summary>
         </member>
+        <member name="T:Sys.Domain.Sqlsugar.Api.ApiSeedData">
+            <summary>
+            接口种子数据
+            </summary>
+        </member>
         <member name="T:Sys.Domain.Sqlsugar.Company.CompanyRepository">
             <summary>
             企业仓储实现

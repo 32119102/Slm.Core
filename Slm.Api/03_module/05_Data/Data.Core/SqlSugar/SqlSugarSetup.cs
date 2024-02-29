@@ -6,13 +6,17 @@ using Slm.Auth.Abstractions;
 using Slm.Data.Abstractions;
 using Slm.Data.Abstractions.Attributes;
 using Slm.Data.Abstractions.Entities;
+using Slm.Data.Abstractions.SqlSugar;
 using Slm.Data.Core.Repository;
 using Slm.Utils.Core;
+using Slm.Utils.Core.Annotations;
 using Slm.Utils.Core.ConfigurableOptions.Extensions;
 using Slm.Utils.Core.Const;
+using Slm.Utils.Core.Extensions;
 using Slm.Utils.Core.Helpers;
 using SqlSugar;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -61,8 +65,12 @@ public static class SqlSugarSetup
 
         InternalApp.Services!.AddSingleton<ISqlSugarClient>(sqlSugar);
 
-      
 
+        // 初始化数据库表结构及种子数据
+        dbOptions.ConnectionConfigs.ForEach(config =>
+        {
+            InitDatabase(sqlSugar, config);
+        });
 
 
         //    builder.RegisterAssemblyTypes(assembly!)
@@ -72,13 +80,6 @@ public static class SqlSugarSetup
         //        .InstancePerLifetimeScope()
         //             .PropertiesAutowired();// 属性注入
         //}
-
-
-
-
-
-
-
 
         //InternalApp.Services!.AddScoped<ISqlSugarClient>(o =>
         //{
@@ -375,4 +376,124 @@ public static class SqlSugarSetup
 
 
 
+
+
+
+    /// <summary>
+    /// 初始化数据库
+    /// </summary>
+    /// <param name="db"></param>
+    /// <param name="config"></param>
+    private static void InitDatabase(SqlSugarScope db, DbConnectionConfig config)
+    {
+        SqlSugarScopeProvider dbProvider = db.GetConnectionScope(config.ConfigId);
+
+        // 初始化/创建数据库
+        if (config.DbSettings.EnableInitDb)
+        {
+            if (config.DbType != SqlSugar.DbType.Oracle)
+                dbProvider.DbMaintenance.CreateDatabase();
+        }
+
+        // 初始化表结构
+        if (config.TableSettings.EnableInitTable)
+        {
+            AssemblyHelper assemblyHelper = new AssemblyHelper();
+            var types = assemblyHelper.LoadByNameEndStringArry(".Domain").SelectMany(a=>a.GetTypes()).ToList();
+         
+
+            var entityTypes = types.Where(u => !u.IsInterface && !u.IsAbstract && u.IsClass && u.IsDefined(typeof(SugarTable), false))
+            .ToList();
+
+            if (config.ConfigId.ToString() == SqlSugarConst.MainConfigId) // 默认库（有系统表特性、没有日志表和租户表特性）
+                entityTypes = entityTypes.Where(u => u.GetCustomAttributes<SysTableAttribute>().Any() || (u.GetCustomAttributes<TenantAttribute>().Any())).ToList();          
+            else
+                entityTypes = entityTypes.Where(u => u.GetCustomAttribute<TenantAttribute>()?.configId.ToString() == config.ConfigId.ToString()).ToList(); // 自定义的库
+
+            foreach (var entityType in entityTypes)
+            {
+                if (entityType.GetCustomAttribute<SplitTableAttribute>() == null)
+                    dbProvider.CodeFirst.InitTables(entityType);
+                else
+                    dbProvider.CodeFirst.SplitTables().InitTables(entityType);
+            }
+        }
+
+        // 初始化种子数据
+        if (config.SeedSettings.EnableInitSeed)
+        {
+            AssemblyHelper assemblyHelper = new AssemblyHelper();
+            var types = assemblyHelper.LoadByNameEndStringArry(".Sqlsugar").SelectMany(a => a.GetTypes()).ToList();
+
+            var seedDataTypes = types.Where(u => !u.IsInterface && !u.IsAbstract && u.IsClass && u.GetInterfaces().Any(i => i.HasImplementedRawGeneric(typeof(ISqlSugarEntitySeedData<>))))
+               .ToList();
+
+            foreach (var seedType in seedDataTypes)
+            {
+                var entityType = seedType.GetInterfaces().First().GetGenericArguments().First();
+                if (config.ConfigId.ToString() == SqlSugarConst.MainConfigId) // 默认库（有系统表特性、没有日志表和租户表特性）
+                {
+                    if (entityType.GetCustomAttribute<SysTableAttribute>() == null && (entityType.GetCustomAttribute<TenantAttribute>() != null))
+                        continue;
+                }
+           
+                else
+                {
+                    var att = entityType.GetCustomAttribute<TenantAttribute>(); // 自定义的库
+                    if (att == null || att.configId.ToString() != config.ConfigId.ToString()) continue;
+                }
+
+                var instance = Activator.CreateInstance(seedType);
+                var hasDataMethod = seedType.GetMethod("HasData");
+                var seedData = ((IEnumerable)hasDataMethod?.Invoke(instance, null))?.Cast<object>();
+                if (seedData == null) continue;
+
+                var entityInfo = dbProvider.EntityMaintenance.GetEntityInfo(entityType);
+                if (entityInfo.Columns.Any(u => u.IsPrimarykey))
+                {
+                    // 按主键进行批量增加和更新
+                    var storage = dbProvider.StorageableByObject(seedData.ToList()).ToStorage();
+                    storage.AsInsertable.ExecuteCommand();
+                    storage.AsUpdateable.ExecuteCommand();
+                }
+                else
+                {
+                    // 无主键则只进行插入
+                    if (!dbProvider.Queryable(entityInfo.DbTableName, entityInfo.DbTableName).Any())
+                        dbProvider.InsertableByObject(seedData.ToList()).ExecuteCommand();
+                }
+            }
+        }
+    }
+
+
+
+    ///// <summary>
+    ///// 初始化租户业务数据库 (新增租户使用)
+    ///// </summary>
+    ///// <param name="iTenant"></param>
+    ///// <param name="config"></param>
+    //public static void InitTenantDatabase(ITenant iTenant, DbConnectionConfig config)
+    //{
+    //    SetDbConfig(config);
+
+    //    if (!iTenant.IsAnyConnection(config.ConfigId.ToString()))
+    //        iTenant.AddConnection(config);
+    //    var db = iTenant.GetConnectionScope(config.ConfigId.ToString());
+    //    db.DbMaintenance.CreateDatabase();
+
+    //    // 获取所有业务表-初始化租户库表结构（排除系统表、日志表、特定库表）
+    //    var entityTypes = App.EffectiveTypes.Where(u => !u.IsInterface && !u.IsAbstract && u.IsClass && u.IsDefined(typeof(SugarTable), false) &&
+    //        !u.IsDefined(typeof(SysTableAttribute), false) && !u.IsDefined(typeof(LogTableAttribute), false) && !u.IsDefined(typeof(TenantAttribute), false)).ToList();
+    //    if (!entityTypes.Any()) return;
+
+    //    foreach (var entityType in entityTypes)
+    //    {
+    //        var splitTable = entityType.GetCustomAttribute<SplitTableAttribute>();
+    //        if (splitTable == null)
+    //            db.CodeFirst.InitTables(entityType);
+    //        else
+    //            db.CodeFirst.SplitTables().InitTables(entityType);
+    //    }
+    //}
 }

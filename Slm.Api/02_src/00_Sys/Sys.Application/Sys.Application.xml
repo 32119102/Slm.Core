@@ -31,7 +31,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Sys.Application.Api.ApiService.TreeTable">
+        <member name="M:Sys.Application.Api.ApiService.TreeTable(Sys.Application.Api.Dto.InApiTreeTableSearchDto)">
             <summary>
             获取树形table
             </summary>
@@ -43,9 +43,54 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="P:Sys.Application.Api.Dto.OutApiTreeTableDto.Key">
+        <member name="P:Sys.Application.Api.Dto.InApiDto.ParentId">
+            <summary>
+            父级id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.InApiDto.Label">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.InApiDto.Path">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.InApiDto.HttpMethods">
+            <summary>
+            http类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.InApiDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.InApiDto.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.InApiTreeTableSearchDto.Label">
+            <summary>
+            企业名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.OutApiTreeTableDto.Id">
             <summary>
             主键
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.OutApiTreeTableDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Api.Dto.OutApiTreeTableDto.IsEnable">
+            <summary>
+            是否启用
             </summary>
         </member>
         <member name="T:Sys.Application.Api.MapsterConfig">
