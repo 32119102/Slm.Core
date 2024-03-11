@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sys.Application.Api.Dto;
 
 public class InApiTreeTableSearchDto
-{
+{ 
     /// <summary>
     /// 企业名称
     /// </summary>

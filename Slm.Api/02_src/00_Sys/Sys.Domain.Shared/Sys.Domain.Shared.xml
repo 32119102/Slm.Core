@@ -24,6 +24,21 @@
             启用
             </summary>
         </member>
+        <member name="T:Sys.Domain.Shared.Const.CacheConst">
+            <summary>
+            缓存键
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Const.CacheConst.KeyUserButton">
+            <summary>
+            用户权限缓存（按钮集合）
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.Const.CacheConst.KeyUserOrg">
+            <summary>
+            用户机构缓存
+            </summary>
+        </member>
         <member name="T:Sys.Domain.Shared.Menu.MenuTypeEnum">
             <summary>
             类型(0.目录;1.菜单;2.按钮;)枚举
@@ -107,6 +122,51 @@
         <member name="F:Sys.Domain.Shared.Tenant.TenantTypeEnum.Db">
             <summary>
             库隔离
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Shared.User.UserSexEnum">
+            <summary>
+            性别枚举
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserSexEnum.UnKnown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserSexEnum.Male">
+            <summary>
+            男
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserSexEnum.Female">
+            <summary>
+            女
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserSexEnum.Other">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="T:Sys.Domain.Shared.User.UserAccountTypeEnum">
+            <summary>
+            账号类型枚举
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserAccountTypeEnum.SuperAdmin">
+            <summary>
+            超级管理员
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserAccountTypeEnum.SysAdmin">
+            <summary>
+            系统管理员
+            </summary>
+        </member>
+        <member name="F:Sys.Domain.Shared.User.UserAccountTypeEnum.NormalUser">
+            <summary>
+            普通账号
             </summary>
         </member>
     </members>

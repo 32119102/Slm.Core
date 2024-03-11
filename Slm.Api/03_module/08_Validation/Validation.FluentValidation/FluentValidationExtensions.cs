@@ -1,6 +1,7 @@
 ﻿
 using FluentValidation.Validators;
 using FluentValidation;
+using Slm.Validation.FluentValidation.Validators;
 
 namespace Slm.Validation.FluentValidation;
 
@@ -10,16 +11,16 @@ namespace Slm.Validation.FluentValidation;
 /// </summary>
 public static class FluentValidationExtensions
 {
-    ///// <summary>
-    ///// 验证手机号
-    ///// </summary>
-    ///// <typeparam name="T"></typeparam>
-    ///// <param name="ruleBuilder"></param>
-    ///// <returns></returns>
-    //public static IRuleBuilderOptions<T, string> Phone<T>(this IRuleBuilder<T, string> ruleBuilder)
-    //{
-    //    return ruleBuilder.SetValidator(new PhoneValidator());
-    //}
+    /// <summary>
+    /// 验证手机号
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="ruleBuilder"></param>
+    /// <returns></returns>
+    public static IRuleBuilderOptions<T, string> Phone<T>(this IRuleBuilder<T, string> ruleBuilder)
+    {
+        return ruleBuilder.SetValidator(new PhoneValidator<T>());
+    }
 
     ///// <summary>
     ///// 验证URL地址

@@ -397,5 +397,80 @@
             名称
             </summary>
         </member>
+        <member name="T:Sys.Domain.User.UserEntity">
+            <summary>
+            账号表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.RealName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.NickName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Email">
+            <summary>
+            邮件
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.OrgId">
+            <summary>
+            组织id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.AccountType">
+            <summary>
+            账号类型
+            </summary>
+        </member>
     </members>
 </doc>

@@ -25,9 +25,9 @@ using Slm.Swashbuckle;
 using Slm.Data.Core;
 using Slm.Local.Event;
 using Slm.Mapster;
-using Slm.FreeRedis;
 using Sys.HttpApi;
 using Slm.Validation.FluentValidation;
+using Slm.Cache;
 
 namespace Slm.HttpApi.Host;
 
@@ -42,7 +42,7 @@ namespace Slm.HttpApi.Host;
    typeof(AppSwashbuckleModule),
    typeof(AppDynamicWebApiModule),
    typeof(AppSqlSugarModule),
-   typeof(AppFreeRedisModule),
+   typeof(AppCacheModule),
    typeof(AppMapsterModule)
   )]
 public class SlmHttpApiHostModule : AppModule
