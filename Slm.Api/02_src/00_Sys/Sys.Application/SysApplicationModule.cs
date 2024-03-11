@@ -1,5 +1,7 @@
-﻿using Slm.Modularity.Abstractions;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Slm.Modularity.Abstractions;
 using Slm.Modularity.Core;
+using Slm.Utils.Core;
 using Sys.Domain;
 
 namespace Sys.Application;     
@@ -13,4 +15,9 @@ namespace Sys.Application;
 public class SysApplicationModule : AppModule
 {
 
+    public override void ConfigureServices()
+    {
+        // 验证码
+        InternalApp.Services!.AddCaptcha();
+    }
 }

@@ -108,11 +108,54 @@
             赖解析
             </summary>
         </member>
-        <member name="M:Sys.Application.Authorize.AuthorizeService.Login">
+        <member name="P:Sys.Application.Authorize.AuthorizeService._captcha">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Authorize.AuthorizeService.Login(Sys.Application.Authorize.Dto.InLoginDto)">
             <summary>
             登录
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Authorize.AuthorizeService.GetCaptcha">
+            <summary>
+            获取验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.Account">
+            <summary>
+            账号
+            </summary>
+            <example>admin</example>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.Password">
+            <summary>
+            密码
+            </summary>
+            <example>123456</example>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.CodeId">
+            <summary>
+            验证码Id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.OutCaptchaDto.Id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.OutCaptchaDto.Img">
+            <summary>
+            base64
+            </summary>
         </member>
         <member name="T:Sys.Application.Cache.CacheService">
             <summary>
@@ -856,6 +899,16 @@
             映射
             </summary>
         </member>
+        <member name="P:Sys.Application.Role.Dto.InGrantDataScopeDto.DataScope">
+            <summary>
+            数据范围（1全部数据 2本部门及以下数据 3本部门数据 4仅本人数据 5自定义数据）
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InGrantRole2ApiDto.ApiIds">
+            <summary>
+            接口集合
+            </summary>
+        </member>
         <member name="P:Sys.Application.Role.Dto.InRoleDto.Name">
             <summary>
             名称
@@ -879,6 +932,11 @@
         <member name="P:Sys.Application.Role.Dto.InRoleDto.IsEnable">
             <summary>
             是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.InRoleDto.MenuIds">
+            <summary>
+            菜单id集合
             </summary>
         </member>
         <member name="P:Sys.Application.Role.Dto.InRoleSearchDto.Name">
@@ -914,6 +972,11 @@
         <member name="P:Sys.Application.Role.Dto.OutRoleDto.IsEnable">
             <summary>
             是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.Dto.OutRoleDto.MenuIds">
+            <summary>
+            菜单id集合
             </summary>
         </member>
         <member name="P:Sys.Application.Role.Dto.OutRoleTableDto.Id">
@@ -960,6 +1023,72 @@
             <summary>
             角色仓储
             </summary>
+        </member>
+        <member name="P:Sys.Application.Role.RoleService._role2MenuRepository">
+            <summary>
+            角色菜单仓储
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.RoleService._role2ApiRepository">
+            <summary>
+            角色接口
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Role.RoleService._role2OrgRepository">
+            <summary>
+            自定义角色权限
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.AddAsync(Sys.Application.Role.Dto.InRoleDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.UpdateAsync(System.Int64,Sys.Application.Role.Dto.InRoleDto)">
+            <summary>
+            更新
+            </summary>
+            <param name="id"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.GetAsync(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.GrantRoleApi(System.Int64,Sys.Application.Role.Dto.InGrantRole2ApiDto)">
+            <summary>
+            角色接口授权
+            </summary>
+            <param name="id"></param>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.GetGrantRoleApi(System.Int64)">
+            <summary>
+            获取角色接口数据
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.GrantDataScope(System.Int64,Sys.Application.Role.Dto.InGrantDataScopeDto)">
+            <summary>
+            数据授权
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Role.RoleService.GetGrantDataScope(System.Int64)">
+            <summary>
+            数据授权
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Sys.Application.Role.MapsterConfig">
             <summary>
@@ -1262,6 +1391,21 @@
         <member name="P:Sys.Application.User.UserService._userRepository">
             <summary>
             账号仓储
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.UserService._easyCachingProvider">
+            <summary>
+            缓存
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.UserService._user2RoleRepository">
+            <summary>
+            用户和角色关系
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.UserService._user2OrgRepository">
+            <summary>
+            用户和组织的关系
             </summary>
         </member>
         <member name="M:Sys.Application.User.UserService.AddAsync(Sys.Application.User.Dto.InUserDto)">

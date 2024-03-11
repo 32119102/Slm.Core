@@ -34,4 +34,10 @@ public class OutRoleDto
     /// </summary>
     public bool IsEnable { get; set; }
 
+
+    /// <summary>
+    /// 菜单id集合
+    /// </summary>
+    public List<long>? MenuIds { get; set; }
+
 }

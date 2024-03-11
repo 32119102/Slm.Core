@@ -302,6 +302,75 @@
             树行
             </summary>
         </member>
+        <member name="M:Sys.Domain.Role2Api.IRole2ApiRepository.GrantRoleApi(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权角色和接口关系
+            </summary>
+            <param name="roleId"></param>
+            <param name="apiIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Role2Api.Role2ApiEntity">
+            <summary>
+            角色接口
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role2Api.Role2ApiEntity.ApiId">
+            <summary>
+            菜单id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role2Api.Role2ApiEntity.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Role2Menu.IRole2MenuRepository.GrantRoleMenu(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权角色和菜单关系
+            </summary>
+            <param name="roleId"></param>
+            <param name="menuIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Role2Menu.Role2MenuEntity">
+            <summary>
+            角色菜单
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role2Menu.Role2MenuEntity.MenuId">
+            <summary>
+            菜单id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role2Menu.Role2MenuEntity.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Role2Org.IRole2OrgRepository.GrantRoleOrg(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权自定义权限
+            </summary>
+            <param name="roleId"></param>
+            <param name="orgIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Role2Org.Role2OrgEntity">
+            <summary>
+            角色接口
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role2Org.Role2OrgEntity.OrgId">
+            <summary>
+            组织id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role2Org.Role2OrgEntity.RoleId">
+            <summary>
+            角色id
+            </summary>
+        </member>
         <member name="T:Sys.Domain.Role.RoleEntity">
             <summary>
             租户表
@@ -335,6 +404,16 @@
         <member name="P:Sys.Domain.Role.RoleEntity.DataScope">
             <summary>
             数据范围（1全部数据 2本部门及以下数据 3本部门数据 4仅本人数据 5自定义数据）
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.Role2MenuEntities">
+            <summary>
+            菜单集合
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.Role.RoleEntity.Role2OrgEntities">
+            <summary>
+            自定义权限
             </summary>
         </member>
         <member name="T:Sys.Domain.SysDbContext">
@@ -395,6 +474,52 @@
         <member name="P:Sys.Domain.TestA.TestAEntity.Name">
             <summary>
             名称
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.User2Org.IUser2OrgRepository.GrantUserOrg(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和组织关系
+            </summary>
+            <param name="userId"></param>
+            <param name="orgIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.User2Org.User2OrgEntity">
+            <summary>
+            账号组织表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User2Org.User2OrgEntity.UserId">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User2Org.User2OrgEntity.OrgId">
+            <summary>
+            组织id
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.User2Role.IUser2RoleRepository.GrantUserRole(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和角色关系
+            </summary>
+            <param name="userId"></param>
+            <param name="roleIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.User2Role.User2RoleEntity">
+            <summary>
+            账号表
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User2Role.User2RoleEntity.UserId">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User2Role.User2RoleEntity.RoleId">
+            <summary>
+            角色id
             </summary>
         </member>
         <member name="T:Sys.Domain.User.UserEntity">

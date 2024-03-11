@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Lazy.Captcha.Core" Version="2.0.7" />
     <PackageReference Include="Rougamo.Fody" Version="2.2.0" />
   </ItemGroup>
 
