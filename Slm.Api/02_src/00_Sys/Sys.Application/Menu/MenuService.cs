@@ -65,7 +65,6 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    //[Order(201)]
     [Transaction]
     public override async Task<dynamic> AddAsync(InMenuDto dto)
     {

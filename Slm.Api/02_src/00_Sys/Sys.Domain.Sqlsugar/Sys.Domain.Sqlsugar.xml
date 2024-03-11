@@ -46,10 +46,56 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Sys.Domain.Sqlsugar.Role2Api.Role2ApiRepository">
+            <summary>
+            用户和角色关系
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.Role2Api.Role2ApiRepository.GrantRoleApi(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和菜单的关系
+            </summary>
+            <param name="roleId"></param>
+            <param name="apiIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Sqlsugar.Role2Menu.Role2MenuRepository">
+            <summary>
+            用户和角色关系
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.Role2Menu.Role2MenuRepository.GrantRoleMenu(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和菜单的关系
+            </summary>
+            <param name="roleId"></param>
+            <param name="menuIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Sqlsugar.Role2Org.Role2OrgRepository">
+            <summary>
+            用户和角色关系
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.Role2Org.Role2OrgRepository.GrantRoleOrg(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和菜单的关系
+            </summary>
+            <param name="roleId"></param>
+            <param name="orgIds"></param>
+            <returns></returns>
+        </member>
         <member name="T:Sys.Domain.Sqlsugar.Role.RoleRepository">
             <summary>
             机构仓储实现
             </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.Role.RoleRepository.GetInfo(System.Int64)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Sys.Domain.Sqlsugar.SysDomainSqlsugarModule">
             <summary>
@@ -60,6 +106,32 @@
             <summary>
             租户仓储实现
             </summary>
+        </member>
+        <member name="T:Sys.Domain.Sqlsugar.User2Org.User2OrgRepository">
+            <summary>
+            用户和角色关系
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.User2Org.User2OrgRepository.GrantUserOrg(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和附属组织关系
+            </summary>
+            <param name="userId"></param>
+            <param name="orgIds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Domain.Sqlsugar.User2Role.User2RoleRepository">
+            <summary>
+            用户和角色关系
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.User2Role.User2RoleRepository.GrantUserRole(System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            授权用户和角色关系
+            </summary>
+            <param name="userId"></param>
+            <param name="roleIds"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

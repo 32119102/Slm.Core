@@ -15,6 +15,19 @@ namespace Sys.Domain.Sqlsugar.Role;
 /// </summary>
 public class RoleRepository : RepositoryAbstract<RoleEntity>, IRoleRepository
 {
+    /// <summary>
+    /// 详情
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public Task<RoleEntity> GetInfo(long id)
+    {
+        return AsQueryable().Includes(a => a.Role2MenuEntities).InSingleAsync(id);
+    }
 
 
+    public Task<RoleEntity> GetRoleAndOrg(long id)
+    {
+        return AsQueryable().Includes(a => a.Role2OrgEntities).InSingleAsync(id);
+    }
 }

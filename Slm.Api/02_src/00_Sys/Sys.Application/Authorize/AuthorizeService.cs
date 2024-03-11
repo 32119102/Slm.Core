@@ -24,6 +24,10 @@ using Slm.Data.Core.Extensions;
 using Slm.Utils.Core.Helpers;
 
 using Slm.Utils.Core;
+using Sys.Application.Authorize.Dto;
+using Microsoft.AspNetCore.Mvc;
+using Lazy.Captcha.Core;
+using Yitter.IdGenerator;
 
 
 namespace Sys.Application.Authorize;
@@ -44,19 +48,36 @@ public class AuthorizeService : IDynamicApi
     /// </summary>
     public IAbpLazyServiceProvider AbpLazyServiceProvider { get; set; } = default!;
 
-
+    /// <summary>
+    /// 验证码
+    /// </summary>
+    public ICaptcha _captcha => AbpLazyServiceProvider.LazyGetRequiredService<ICaptcha>();
 
 
     /// <summary>
     /// 登录
     /// </summary>
     /// <returns></returns>
-    public async Task<string> Login()
+    public async Task<string> Login(InLoginDto dto)
     {
       
 
         return "OK";
     }
+
+
+    /// <summary>
+    /// 获取验证码
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<OutCaptchaDto> GetCaptcha() 
+    {
+        var codeId = YitIdHelper.NextId().ToString();
+        var captcha = _captcha.Generate(codeId);
+        return new OutCaptchaDto { Id = codeId, Img = "data:image/png;base64,"+captcha.Base64 };
+    }
+
 
 
 

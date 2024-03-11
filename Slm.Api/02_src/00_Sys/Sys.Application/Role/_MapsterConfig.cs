@@ -23,7 +23,9 @@ public class MapsterConfig : IRegister
                .Map(m => m.DataScopeName, y => y.DataScope.ToDescription())
           ;
         //详情
-        cfg.NewConfig<RoleEntity, OutRoleDto>();
+        cfg.NewConfig<RoleEntity, OutRoleDto>()
+           .Map(m => m.MenuIds, y => y.Role2MenuEntities.Select(a => a.MenuId).ToList())
+            ;
         //新增
         cfg.NewConfig<InRoleDto, RoleEntity>();
 
@@ -34,6 +36,10 @@ public class MapsterConfig : IRegister
                 .Map(m => m.Label, y => y.Name)
             ;
 
+        //详情
+        cfg.NewConfig<RoleEntity, InGrantDataScopeDto>()
+           .Map(m => m.OrgIds, y => y.Role2OrgEntities.Select(a => a.OrgId).ToList())
+            ;
 
 
 

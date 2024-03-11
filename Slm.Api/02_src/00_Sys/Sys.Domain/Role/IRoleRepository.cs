@@ -11,5 +11,6 @@ namespace Sys.Domain.Role;
 public interface IRoleRepository : IBaseRepository<RoleEntity>
 {
 
-
+    Task<RoleEntity> GetInfo(long id);
+    Task<RoleEntity> GetRoleAndOrg(long id);
 }

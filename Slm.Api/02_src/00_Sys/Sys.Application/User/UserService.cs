@@ -10,6 +10,8 @@ using Sys.Application.User.Dto;
 using Sys.Domain.Shared;
 using Sys.Domain.Shared.Const;
 using Sys.Domain.User;
+using Sys.Domain.User2Org;
+using Sys.Domain.User2Role;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +32,22 @@ public class UserService : ServiceAbstract<UserEntity, InUserDto, OutUserDto, In
     /// 账号仓储
     /// </summary>
     public IUserRepository _userRepository => AbpLazyServiceProvider.LazyGetRequiredService<IUserRepository>();
-    public IEasyCachingProvider _easyCachingProvider => AbpLazyServiceProvider.LazyGetRequiredService<IEasyCachingProvider>();
-    public JsonHelper _jsonHelper => AbpLazyServiceProvider.LazyGetRequiredService<JsonHelper>();
 
+    /// <summary>
+    /// 缓存
+    /// </summary>
+    public IEasyCachingProvider _easyCachingProvider => AbpLazyServiceProvider.LazyGetRequiredService<IEasyCachingProvider>();
+
+    /// <summary>
+    /// 用户和角色关系
+    /// </summary>
+    public IUser2RoleRepository _user2RoleRepository => AbpLazyServiceProvider.LazyGetRequiredService<IUser2RoleRepository>();
+
+
+    /// <summary>
+    /// 用户和组织的关系
+    /// </summary>
+    public IUser2OrgRepository _user2OrgRepository => AbpLazyServiceProvider.LazyGetRequiredService<IUser2OrgRepository>();
 
     /// <summary>
     /// 新增
@@ -44,17 +59,17 @@ public class UserService : ServiceAbstract<UserEntity, InUserDto, OutUserDto, In
     {
         var user = _mapper.Map<UserEntity>(dto);
         //默认密码
-        long id = await _userRepository.InsertReturnSnowflakeIdAsync(user);
-
-        //await _easyCachingProvider.SetAsync(CacheConst.KeyUserButton + id, user, TimeSpan.FromDays(7));
-        //var ddd = await _easyCachingProvider.GetAsync<UserEntity>(CacheConst.KeyUserButton + id);
-        //await _easyCachingProvider.RemoveAsync(CacheConst.KeyUserButton + id);
 
         //01.用户
+        long id = await _userRepository.InsertReturnSnowflakeIdAsync(user);
+
+   
         //02.角色
+        await _user2RoleRepository.GrantUserRole(id, dto.RoleIds);
 
 
         //03.附属组织
+        await _user2OrgRepository.GrantUserOrg(id, dto.OrgIds);
         return id;
     }
 
