@@ -114,6 +114,39 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Sys.Application.Cache.CacheService">
+            <summary>
+            缓存服务
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Cache.CacheService.AbpLazyServiceProvider">
+            <summary>
+            赖解析
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Cache.CacheService._easyCachingProvider">
+            <summary>
+            缓存解析
+            </summary>
+        </member>
+        <member name="P:Sys.Application.Cache.CacheService._redisCachingProvider">
+            <summary>
+            缓存解析
+            </summary>
+        </member>
+        <member name="M:Sys.Application.Cache.CacheService.KeyList">
+            <summary>
+            获取缓存键名集合
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.Cache.CacheService.Value(System.String)">
+            <summary>
+            获取key值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:Sys.Application.Common.CommonService">
             <summary>
             认证服务
@@ -1091,6 +1124,154 @@
             </summary>
         </member>
         <member name="T:Sys.Application.Tenant.MapsterConfig">
+            <summary>
+            映射
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.RealName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.NickName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Email">
+            <summary>
+            邮件
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.OrgId">
+            <summary>
+            组织id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.AccountType">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.RoleIds">
+            <summary>
+            角色id集合
+            </summary>
+            
+        </member>
+        <member name="P:Sys.Application.User.Dto.InUserDto.OrgIds">
+            <summary>
+            附属机构集合
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.RealName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.NickName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.SexName">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Email">
+            <summary>
+            邮件
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.Remark">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.OutUserTableDto.AccountTypeName">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="T:Sys.Application.User.UserService">
+            <summary>
+            账号服务
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.UserService._userRepository">
+            <summary>
+            账号仓储
+            </summary>
+        </member>
+        <member name="M:Sys.Application.User.UserService.AddAsync(Sys.Application.User.Dto.InUserDto)">
+            <summary>
+            新增
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Sys.Application.User.MapsterConfig">
             <summary>
             映射
             </summary>

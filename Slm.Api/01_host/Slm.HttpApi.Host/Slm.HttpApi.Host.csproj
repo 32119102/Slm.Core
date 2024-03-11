@@ -20,7 +20,7 @@
     <ProjectReference Include="..\..\03_module\05_Data\AutoFacInjection\AutoFacInjection.csproj" />
     <ProjectReference Include="..\..\03_module\05_Data\Data.Core\Data.Core.csproj" />
     <ProjectReference Include="..\..\03_module\07_Swashbuckle\Swashbuckle\Swashbuckle.csproj" />
-    <ProjectReference Include="..\..\03_module\09_Redis\FreeRedis\FreeRedis.csproj" />
+    <ProjectReference Include="..\..\03_module\09_Cache\Cache\Cache.csproj" />
     <ProjectReference Include="..\..\03_module\10_Auth\Auth.Jwt\Auth.Jwt.csproj" />
     <ProjectReference Include="..\..\03_module\10_Auth\Auth.Web\Auth.Web.csproj" />
     <ProjectReference Include="..\..\03_module\11_Event\Local.Event\Local.Event.csproj" />

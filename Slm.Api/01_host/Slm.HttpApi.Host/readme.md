@@ -23,3 +23,17 @@ A a2 = new A{Age = 1,Name = "你好"};
 List<A> aList = new List<A>() { a, a2 };
 _logger.LogInformation("{@Po}".ToLog(), SerilogConst.Info, aList);
 ```
+
+
+
+## 在线聊天
+```
+
+--跳过一条数据，取出5条数据
+select * from im_chat  order by id  limit 1, 5;
+
+--游标分页,每次需要获取返回的数据最小id
+select * from im_chat where id>15449102576709 order by id  limit 1;
+
+
+```
