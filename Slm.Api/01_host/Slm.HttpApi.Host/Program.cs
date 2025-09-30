@@ -15,6 +15,10 @@ sw.Start();
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+InternalApp.Services = builder.Services;
+
 //赋值基本配置,加载josn文件
 builder.ConfigureApplication();
 

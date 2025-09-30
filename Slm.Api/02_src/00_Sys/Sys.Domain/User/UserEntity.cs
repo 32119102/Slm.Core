@@ -12,7 +12,7 @@ namespace Sys.Domain.User;
 /// </summary>
 [SugarTable("sys_user")]
 [SysTable]
-public partial class UserEntity : EntityBase<long>
+public partial class UserEntity : EntityTenant<long>
 {
     /// <summary>
     /// 账号

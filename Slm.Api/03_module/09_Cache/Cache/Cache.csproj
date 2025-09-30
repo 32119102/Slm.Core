@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <PackageReference Include="EasyCaching.Redis" Version="1.9.2" />
-    <PackageReference Include="EasyCaching.Serialization.SystemTextJson" Version="1.9.2" />
+    <PackageReference Include="FreeRedis" Version="1.2.15" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\00_Utils\Utils.Core\Utils.Core.csproj" />

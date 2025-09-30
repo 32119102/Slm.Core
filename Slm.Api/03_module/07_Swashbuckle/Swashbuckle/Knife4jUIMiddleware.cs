@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 
 namespace Slm.Swashbuckle;
+
 public class Knife4jUIMiddleware
 {
     private const string EmbeddedFileNamespace = "Slm.Swashbuckle.Ui";
@@ -70,7 +71,8 @@ public class Knife4jUIMiddleware
 
     private async Task RespondWithConfig(HttpResponse response)
     {
-        await response.WriteAsync(JsonSerializer.Serialize(_options.ConfigObject.Urls, _jsonSerializerOptions));
+        //返回数据修改
+        await response.WriteAsync(JsonSerializer.Serialize(_options.ConfigObject, _jsonSerializerOptions));
     }
 
     private StaticFileMiddleware CreateStaticFileMiddleware(

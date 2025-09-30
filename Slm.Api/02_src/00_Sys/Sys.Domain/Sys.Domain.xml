@@ -522,6 +522,25 @@
             角色id
             </summary>
         </member>
+        <member name="P:Sys.Domain.User2Role.User2RoleEntity.Role">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="M:Sys.Domain.User.IUserRepository.Login(System.String,System.String)">
+            <summary>
+            获取登录信息
+            </summary>
+            <param name="tenantCode"></param>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Domain.User.IUserRepository.UserInfo">
+            <summary>
+            获取登录人信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Sys.Domain.User.UserEntity">
             <summary>
             账号表
@@ -595,6 +614,16 @@
         <member name="P:Sys.Domain.User.UserEntity.AccountType">
             <summary>
             账号类型
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.User2Roles">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="P:Sys.Domain.User.UserEntity.Org">
+            <summary>
+            用户角色
             </summary>
         </member>
     </members>

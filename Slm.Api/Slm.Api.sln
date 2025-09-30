@@ -15,7 +15,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_build", "00_build", "{2CEDD15B-A3B8-4CC3-8E44-D8D1F0528CB3}"
 	ProjectSection(SolutionItems) = preProject
 		03_module\Directory.Build.props = 03_module\Directory.Build.props
-		build\module.build.targets = build\module.build.targets
+		00_build\module.build.targets = 00_build\module.build.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Utils", "00_Utils", "{84E17964-4C54-46F2-94E8-7914B3FB760C}"

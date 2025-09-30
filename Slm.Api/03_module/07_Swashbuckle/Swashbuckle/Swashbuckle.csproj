@@ -17,8 +17,8 @@
   </ItemGroup>
 
 
-  <ItemGroup>
-    <EmbeddedResource Include="Ui/**/*" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Ui/**/*" />
+	</ItemGroup>
 
 </Project>

@@ -214,6 +214,14 @@ public static class CommonExtensions
         return Guid.Empty;
     }
 
+
+    public static T? ToEnum<T>(this string s)
+    {
+        if (s.NotNull())
+            return (T)(Enum.Parse(typeof(T), s));
+        return default(T);
+    }
+
     /// <summary>
     /// 泛型转换，转换失败会抛出异常
     /// </summary>

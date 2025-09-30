@@ -46,7 +46,7 @@ public static class ConfigurableOptionsServiceCollectionExtensions
             }
         }
 
-        var optionsConfigure = services.AddOptions<TOptions>()
+        OptionsBuilder<TOptions>? optionsConfigure = services.AddOptions<TOptions>()
               .Bind(optionsConfiguration, options =>
               {
                   options.BindNonPublicProperties = true; // 绑定私有变量

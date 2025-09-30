@@ -8,7 +8,7 @@ namespace Sys.Domain.User2Role;
 /// </summary>
 [SugarTable("sys_user2role")]
 [SysTable]
-public class User2RoleEntity
+public partial class User2RoleEntity
 {
     /// <summary>
     /// 用户id

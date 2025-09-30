@@ -212,6 +212,7 @@ public class App
     public static TOptions GetOptions<TOptions>(IServiceProvider serviceProvider = default)
         where TOptions : class, new()
     {
+        var dd = serviceProvider ?? ServiceProvider;
         return Penetrates.GetOptionsOnStarting<TOptions>()
             ?? GetService<IOptions<TOptions>>(serviceProvider ?? ServiceProvider)?.Value!;
     }

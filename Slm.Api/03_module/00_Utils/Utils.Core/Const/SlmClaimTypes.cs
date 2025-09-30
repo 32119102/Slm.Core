@@ -2,50 +2,43 @@
 
 namespace Slm.Utils.Core.Const;
 
-public class SlmClaimTypes
+public class SlmClaimConst
 {
     /// <summary>
-    /// 租户编号
+    /// 用户Id
     /// </summary>
-    public const string TenantId = "td";
+    public const string UserId = "UserId";
 
     /// <summary>
-    /// 账户编号
+    /// 账号
     /// </summary>
-    public const string UserId = "id";
+    public const string Account = "Account";
 
     /// <summary>
-    /// 账户名称
+    /// 真实姓名
     /// </summary>
-    public const string UserName = "an";
+    public const string RealName = "RealName";
 
     /// <summary>
-    /// 刷新有效期
+    /// 昵称
     /// </summary>
-    public const string RefreshExpires = "re";
+    public const string NickName = "NickName";
 
     /// <summary>
-    /// 登录时间
+    /// 账号类型
     /// </summary>
-    public const string LoginTime = "lt";
+    public const string AccountType = "AccountType";
 
     /// <summary>
-    /// 客户IP
+    /// 租户Id
     /// </summary>
-    public const string Ip = "ip";
+    public const string TenantId = "TenantId";
 
     /// <summary>
-    /// 角色集合
+    /// 组织机构Id
     /// </summary>
-    public const string Roles = "ro";
+    public const string OrgId = "OrgId";
 
-    /// <summary>
-    /// 超级管理员
-    /// </summary>
-    public const string Padmin = "padmin";
-
-
-    public const string AccountType = "accountType";
 }
 
 /// <summary>

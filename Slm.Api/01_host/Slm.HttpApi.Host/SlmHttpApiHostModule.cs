@@ -107,25 +107,47 @@ public class SlmHttpApiHostModule : AppModule
         #region 认证授权
         var jwtConfig = App.GetOptions<JwtOptions>();
         //添加身份认证服务
-        InternalApp.Services!.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        InternalApp.Services!.AddAuthentication(x =>
+        {
+            x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
             .AddJwtBearer(options =>
             {
                 //配置令牌验证参数
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ClockSkew = TimeSpan.Zero,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig!.Key)),
-                    ValidIssuer = jwtConfig.Issuer,
-                    ValidAudience = jwtConfig.Audience
+                    // 验证签发方密钥
+                    ValidateIssuerSigningKey = jwtConfig.ValidateIssuerSigningKey.Value,
+                    // 签发方密钥
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig.IssuerSigningKey)),
+                    // 验证签发方
+                    ValidateIssuer = jwtConfig.ValidateIssuer.Value,
+                    // 设置签发方
+                    ValidIssuer = jwtConfig.ValidIssuer,
+                    // 验证签收方
+                    ValidateAudience = jwtConfig.ValidateAudience.Value,
+                    // 设置接收方
+                    ValidAudience = jwtConfig.ValidAudience,
+                    // 验证生存期
+                    ValidateLifetime = jwtConfig.ValidateLifetime.Value,
+                    // 过期时间容错值
+                    ClockSkew = TimeSpan.FromSeconds(jwtConfig.ClockSkew.Value),
+
+
+                    //ValidateIssuer = jwtConfig.ValidateIssuer.Value,
+                    //ValidateAudience = jwtConfig.ValidateAudience.Value,
+                    //ValidateLifetime = jwtConfig.ValidateLifetime.Value,
+                    //ValidateIssuerSigningKey = jwtConfig.ValidateIssuerSigningKey.Value,
+                    //ClockSkew = TimeSpan.Zero,
+                    //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfig!.IssuerSigningKey)),
+                    //ValidIssuer = jwtConfig.ValidIssuer,
+                    //ValidAudience = jwtConfig.ValidAudience
                 };
                 //自定义配置
                 //configure?.Invoke(options);
             });
-
+        //InternalApp.Services!.AddAuthorization();
         #endregion 认证授权
 
         #region 跨域设置

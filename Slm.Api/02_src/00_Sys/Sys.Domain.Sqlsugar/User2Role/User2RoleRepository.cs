@@ -1,4 +1,4 @@
-﻿using EasyCaching.Core;
+﻿using FreeRedis;
 using Slm.Data.Core.Repository;
 using Slm.Utils.Core.Extensions;
 using Sys.Domain.Shared.Const;
@@ -11,11 +11,11 @@ namespace Sys.Domain.Sqlsugar.User2Role;
 /// </summary>
 public class User2RoleRepository : RepositoryAbstract<User2RoleEntity>, IUser2RoleRepository
 {
-    private readonly IEasyCachingProvider _easyCachingProvider;
+    private readonly RedisClient _redisClient;
 
-    public User2RoleRepository(IEasyCachingProvider easyCachingProvider)
+    public User2RoleRepository(RedisClient redisClient)
     {
-        _easyCachingProvider = easyCachingProvider;
+        _redisClient = redisClient;
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class User2RoleRepository : RepositoryAbstract<User2RoleEntity>, IUser2Ro
             UserId = userId
         }).ToList();
         await base.InsertRangeAsync(user2RoleList);
-        _easyCachingProvider.Remove(CacheConst.KeyUserButton + userId);
+        await _redisClient.DelAsync(CacheConst.KeyUserButton + userId);
     }
 
 

@@ -113,6 +113,11 @@
             验证码
             </summary>
         </member>
+        <member name="P:Sys.Application.Authorize.AuthorizeService._userRepository">
+            <summary>
+            用户
+            </summary>
+        </member>
         <member name="M:Sys.Application.Authorize.AuthorizeService.Login(Sys.Application.Authorize.Dto.InLoginDto)">
             <summary>
             登录
@@ -124,6 +129,11 @@
             获取验证码
             </summary>
             <returns></returns>
+        </member>
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.TenantCode">
+            <summary>
+            租户code
+            </summary>
         </member>
         <member name="P:Sys.Application.Authorize.Dto.InLoginDto.Account">
             <summary>
@@ -137,12 +147,12 @@
             </summary>
             <example>123456</example>
         </member>
-        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.CodeId">
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.VerifyId">
             <summary>
             验证码Id
             </summary>
         </member>
-        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.Code">
+        <member name="P:Sys.Application.Authorize.Dto.InLoginDto.VerifyCode">
             <summary>
             验证码
             </summary>
@@ -167,12 +177,7 @@
             赖解析
             </summary>
         </member>
-        <member name="P:Sys.Application.Cache.CacheService._easyCachingProvider">
-            <summary>
-            缓存解析
-            </summary>
-        </member>
-        <member name="P:Sys.Application.Cache.CacheService._redisCachingProvider">
+        <member name="P:Sys.Application.Cache.CacheService._redisClient">
             <summary>
             缓存解析
             </summary>
@@ -1383,6 +1388,51 @@
             账号类型
             </summary>
         </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.Id">
+            <summary>
+            用户id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.Account">
+            <summary>
+            账号名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.AccountType">
+            <summary>
+            账号类型
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.OrgId">
+            <summary>
+            机构Id
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.OrgName">
+            <summary>
+            机构名称
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.Buttons">
+            <summary>
+            按钮权限集合,前端
+            </summary>
+        </member>
+        <member name="P:Sys.Application.User.Dto.UserLoginOutPut.RoleIds">
+            <summary>
+            角色集合
+            </summary>
+        </member>
         <member name="T:Sys.Application.User.UserService">
             <summary>
             账号服务
@@ -1391,11 +1441,6 @@
         <member name="P:Sys.Application.User.UserService._userRepository">
             <summary>
             账号仓储
-            </summary>
-        </member>
-        <member name="P:Sys.Application.User.UserService._easyCachingProvider">
-            <summary>
-            缓存
             </summary>
         </member>
         <member name="P:Sys.Application.User.UserService._user2RoleRepository">
@@ -1413,6 +1458,12 @@
             新增
             </summary>
             <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Application.User.UserService.GetUserInfo">
+            <summary>
+            获取登录信息
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Sys.Application.User.MapsterConfig">

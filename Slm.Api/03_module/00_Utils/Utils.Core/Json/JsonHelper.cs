@@ -52,4 +52,17 @@ public class JsonHelper : ISingletonDependency
     {
         return JsonSerializer.Deserialize<T>(json, _options);
     }
+
+
+    /// <summary>
+    /// 反序列化
+    /// </summary>
+    /// <param name="json"></param>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public object? Deserialize(string json, Type type)
+    {
+        return JsonSerializer.Deserialize(json, type, _options);
+    }
+
 }

@@ -11,17 +11,17 @@ public class UserResolver
     /// <summary>
     /// 租户
     /// </summary>
-    public static int? TenantId
+    public static long? TenantId
     {
         get
         {
             if (App.User == null)
                 return null;
-            var tenantId = App.User!.FindFirst(SlmClaimTypes.TenantId);
+            var tenantId = App.User!.FindFirst(SlmClaimConst.TenantId);
 
             if (tenantId != null && tenantId.Value.NotNull())
             {
-                return tenantId.Value.To<int>();
+                return tenantId.Value.To<long>();
             }
             return null;
         }
@@ -36,7 +36,7 @@ public class UserResolver
         {
             if (App.User == null)
                 return null;
-            var accountId = App.User!.FindFirst(SlmClaimTypes.UserId);
+            var accountId = App.User!.FindFirst(SlmClaimConst.UserId);
 
             if (accountId != null && accountId.Value.NotNull())
             {
@@ -56,7 +56,7 @@ public class UserResolver
         {
             if (App.User == null)
                 return "";
-            var accountName = App.User!.FindFirst(SlmClaimTypes.UserName);
+            var accountName = App.User!.FindFirst(SlmClaimConst.RealName);
 
             if (accountName == null || accountName.Value.IsNull())
             {
@@ -74,12 +74,12 @@ public class UserResolver
         {
             if (App.User == null)
                 return null;
-            var accountType = App.User!.FindFirst(SlmClaimTypes.AccountType);
+            var accountType = App.User!.FindFirst(SlmClaimConst.AccountType);
             if (accountType == null || accountType.Value.IsNull())
             {
                 return null;
             }
-            return accountType.Value.To<AccountTypeEnum>();
+            return accountType.Value.ToEnum<AccountTypeEnum>();
 
 
         }
@@ -87,25 +87,25 @@ public class UserResolver
     }
 
 
-    /// <summary>
-    /// 是否超级管理员
-    /// </summary>
-    public static bool IsPadmin
-    {
-        get
-        {
-            if (App.User == null)
-                return false;
-            var accountName = App.User!.FindFirst(SlmClaimTypes.Padmin);
-            if (accountName == null || accountName.Value.IsNull())
-            {
-                return false;
-            }
-            return accountName.Value.ToBool();
+    ///// <summary>
+    ///// 是否超级管理员
+    ///// </summary>
+    //public static bool IsPadmin
+    //{
+    //    get
+    //    {
+    //        if (App.User == null)
+    //            return false;
+    //        var accountName = App.User!.FindFirst(SlmClaimConst.Padmin);
+    //        if (accountName == null || accountName.Value.IsNull())
+    //        {
+    //            return false;
+    //        }
+    //        return accountName.Value.ToBool();
 
 
-        }
-    }
+    //    }
+    //}
 
 
 
@@ -113,19 +113,19 @@ public class UserResolver
     /// <summary>
     /// 角色集合
     /// </summary>
-    public static List<long> Roles
-    {
-        get
-        {
-            var accountName = App.User!.FindFirst(SlmClaimTypes.Roles);
+    //public static List<long> Roles
+    //{
+    //    get
+    //    {
+    //        var accountName = App.User!.FindFirst(SlmClaimTypes.Roles);
 
-            if (accountName == null || accountName.Value.IsNull())
-            {
-                return new List<long>();
-            }
-            return accountName.Value.Split(',').Select(a => a.To<long>()).ToList();
-        }
-    }
+    //        if (accountName == null || accountName.Value.IsNull())
+    //        {
+    //            return new List<long>();
+    //        }
+    //        return accountName.Value.Split(',').Select(a => a.To<long>()).ToList();
+    //    }
+    //}
 
 
 

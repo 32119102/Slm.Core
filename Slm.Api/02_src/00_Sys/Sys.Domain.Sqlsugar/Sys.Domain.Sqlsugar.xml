@@ -133,5 +133,19 @@
             <param name="roleIds"></param>
             <returns></returns>
         </member>
+        <member name="M:Sys.Domain.Sqlsugar.User.UserRepository.Login(System.String,System.String)">
+            <summary>
+            获取登录信息
+            </summary>
+            <param name="tenantCode"></param>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sys.Domain.Sqlsugar.User.UserRepository.UserInfo">
+            <summary>
+            获取当前登录人信息
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

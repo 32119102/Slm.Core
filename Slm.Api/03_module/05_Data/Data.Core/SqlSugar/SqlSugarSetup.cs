@@ -55,7 +55,8 @@ public static class SqlSugarSetup
         SqlSugarScope sqlSugar = new SqlSugarScope(dbOptions.ConnectionConfigs.Adapt<List<ConnectionConfig>>(), db =>
         {
             dbOptions.ConnectionConfigs.ForEach(config =>
-            {
+            {               
+
                 var dbProvider = db.GetConnectionScope(config.ConfigId);
                 SetDbAop(dbProvider, dbOptions.EnableConsoleSql);
                 SetDbDiffLog(dbProvider, config);
@@ -66,7 +67,7 @@ public static class SqlSugarSetup
         InternalApp.Services!.AddSingleton<ISqlSugarClient>(sqlSugar);
 
 
-        // 初始化数据库表结构及种子数据
+        //初始化数据库表结构及种子数据
         dbOptions.ConnectionConfigs.ForEach(config =>
         {
             InitDatabase(sqlSugar, config);

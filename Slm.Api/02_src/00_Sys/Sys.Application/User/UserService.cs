@@ -1,10 +1,12 @@
-﻿using EasyCaching.Core;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Slm.Auth.Abstractions;
 using Slm.Data.Abstractions.Attributes;
 using Slm.Data.Core.Service;
 using Slm.DynamicApi;
 using Slm.DynamicApi.Attributes;
 using Slm.Utils.Core;
+using Slm.Utils.Core.Annotations;
 using Slm.Utils.Core.Models;
 using Sys.Application.User.Dto;
 using Sys.Domain.Shared;
@@ -25,7 +27,6 @@ namespace Sys.Application.User;
 /// </summary>
 [DynamicApi(Area = SsyAreaConst.Area)]
 [Order(7)]
-[AllowAnonymous]
 public class UserService : ServiceAbstract<UserEntity, InUserDto, OutUserDto, InUserSearchDto, OutUserTableDto, long>, IDynamicApi
 {
     /// <summary>
@@ -33,10 +34,6 @@ public class UserService : ServiceAbstract<UserEntity, InUserDto, OutUserDto, In
     /// </summary>
     public IUserRepository _userRepository => AbpLazyServiceProvider.LazyGetRequiredService<IUserRepository>();
 
-    /// <summary>
-    /// 缓存
-    /// </summary>
-    public IEasyCachingProvider _easyCachingProvider => AbpLazyServiceProvider.LazyGetRequiredService<IEasyCachingProvider>();
 
     /// <summary>
     /// 用户和角色关系
@@ -63,7 +60,7 @@ public class UserService : ServiceAbstract<UserEntity, InUserDto, OutUserDto, In
         //01.用户
         long id = await _userRepository.InsertReturnSnowflakeIdAsync(user);
 
-   
+
         //02.角色
         await _user2RoleRepository.GrantUserRole(id, dto.RoleIds);
 
@@ -74,5 +71,29 @@ public class UserService : ServiceAbstract<UserEntity, InUserDto, OutUserDto, In
     }
 
 
+    /// <summary>
+    /// 获取登录信息
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet]
+    [AllowWhenAuthenticated]
+    public async Task<UserLoginOutPut> GetUserInfo()
+    {
+        var user = await _userRepository.UserInfo();
 
+
+
+        return new UserLoginOutPut
+        {
+            Id = user.Id,
+            Account = user.Account,
+            AccountType = user.AccountType.Value,
+            RealName = user.RealName,
+            Avatar = user.Avatar,
+            OrgId = user.OrgId.Value,
+            OrgName = user.Org.Name,
+            RoleIds = user.User2Roles.Select(a => a.RoleId).ToList()
+
+        };
+    }
 }

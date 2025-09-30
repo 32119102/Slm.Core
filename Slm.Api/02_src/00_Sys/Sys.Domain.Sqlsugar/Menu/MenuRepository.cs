@@ -1,4 +1,5 @@
-﻿using Slm.Data.Core.Repository;
+﻿using Slm.Auth.Abstractions;
+using Slm.Data.Core.Repository;
 using Sys.Domain.Api;
 using Sys.Domain.Menu;
 using Sys.Domain.Shared.Menu;

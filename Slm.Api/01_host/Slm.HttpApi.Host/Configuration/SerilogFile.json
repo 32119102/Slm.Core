@@ -9,9 +9,9 @@
   //Serilog日志
   "Serilog": {
     "MinimumLevel": {
-      "Default": "Information",
+      "Default": "Debug",
       "Override": {
-        "Microsoft": "Information",
+        "Microsoft": "Warning",
         "System": "Information"
       }
     },

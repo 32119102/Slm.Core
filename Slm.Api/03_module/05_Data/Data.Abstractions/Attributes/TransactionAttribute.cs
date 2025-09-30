@@ -23,7 +23,7 @@ public class TransactionAttribute : MoAttribute
     public override void OnEntry(MethodContext context)
     {
         // 从context对象中能取到包括入参、类实例、方法描述等信息
-        ConsoleHelper.WriteErrorLine("触发aop事务事件");
+        ConsoleHelper.WriteErrorLine("触发aop事务事件111");
         _tran = App.GetService<ITran>()!;
         _tran.BeginTran();
 

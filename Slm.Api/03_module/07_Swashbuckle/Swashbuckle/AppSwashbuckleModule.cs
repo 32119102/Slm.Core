@@ -55,11 +55,11 @@ public class AppSwashbuckleModule : AppModule
             }
 
             #region 移除
-            //c.CustomOperationIds(apiDesc =>
-            //{
-            //    var controllerAction = apiDesc.ActionDescriptor as ControllerActionDescriptor;
-            //    return controllerAction.ActionName;
-            //});
+            c.CustomOperationIds(apiDesc =>
+            {
+                var controllerAction = apiDesc.ActionDescriptor as ControllerActionDescriptor;
+                return controllerAction.ActionName;
+            });
             ////接口全路径
             //c.CustomOperationIds(apiDesc =>
             //{

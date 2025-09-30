@@ -27,11 +27,11 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     /// <summary>
     /// 菜单仓储
     /// </summary>
-    public IMenuRepository _menuRepository => AbpLazyServiceProvider.LazyGetRequiredService<IMenuRepository>();
+    public IMenuRepository _menuRepository => AbpLazyServiceProvider.LazyGetService<IMenuRepository>();
 
-    public IMenu2ApiRepository _menu2ApiRepository => AbpLazyServiceProvider.LazyGetRequiredService<IMenu2ApiRepository>();
+    public IMenu2ApiRepository _menu2ApiRepository => AbpLazyServiceProvider.LazyGetService<IMenu2ApiRepository>();
 
-
+  
 
     /// <summary>
     /// 获取树形table
@@ -116,6 +116,7 @@ public class MenuService : ServiceAbstract<MenuEntity, InMenuDto, OutMenuDto, In
     public async Task<List<OutLeftMenuDto>> GetLeftMenu() 
     {
         var trees = await _menuRepository.TreeTable(a => a.Type != MenuTypeEnum.Button);
+        var dd = _menu2ApiRepository;
         var result = _mapper.Map<List<OutLeftMenuDto>>(trees);
         return result;
 

@@ -1,18 +1,5 @@
 {
   "Cache": {
-    "CacheType": "Redis", // Memory或者Redis
-    "Redis": {
-      "dbconfig": {
-        "Endpoints": [
-          {
-            "Host": "127.0.0.1",
-            "Port": 6379
-          }
-        ],
-        "Database": 5,
-        "KeyPrefix": "adminnet:" // 
-      }
-    }
+    "ConnectionString": "127.0.0.1:6379,defaultDatabase=5,prefix=adminnet:"
   }
-
 }

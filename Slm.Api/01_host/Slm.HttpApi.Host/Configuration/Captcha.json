@@ -1,28 +1,31 @@
 {
   "$schema": "https://github.com/pojianbing/LazyCaptcha?tab=readme-ov-file",
-
+  "ConnectionStrings": {
+    "RedisCache": "localhost,defaultDatabase=5",
+    "Prefix": "captcha:"
+  },
   "CaptchaOptions": {
-    "CaptchaType": 2, // ÑéÖ¤ÂëÀàÐÍ0¡¢1¡¢2¡¢3¡¢4¡¢5¡¢6¡¢7¡¢8¡¢9¡¢10¡¢11
-    "CodeLength": 4, // ÑéÖ¤Âë³¤¶È, Òª·ÅÔÚCaptchaTypeÉèÖÃºó  µ±ÀàÐÍÎªËãÊõ±í´ïÊ½Ê±£¬³¤¶È´ú±í²Ù×÷µÄ¸öÊý, ÀýÈç2
-    "ExpirySeconds": 60, // ÑéÖ¤Âë¹ýÆÚÃëÊý
-    "IgnoreCase": true, // ±È½ÏÊ±ÊÇ·ñºöÂÔ´óÐ¡Ð´
-    "StoreageKeyPrefix": "", // ´æ´¢¼üÇ°×º
+    "CaptchaType": 2, // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½1ï¿½ï¿½2ï¿½ï¿½3ï¿½ï¿½4ï¿½ï¿½5ï¿½ï¿½6ï¿½ï¿½7ï¿½ï¿½8ï¿½ï¿½9ï¿½ï¿½10ï¿½ï¿½11
+    "CodeLength": 4, // ï¿½ï¿½Ö¤ï¿½ë³¤ï¿½ï¿½, Òªï¿½ï¿½ï¿½ï¿½CaptchaTypeï¿½ï¿½ï¿½Ãºï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½2
+    "ExpirySeconds": 60, // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    "IgnoreCase": true, // ï¿½È½ï¿½Ê±ï¿½Ç·ï¿½ï¿½ï¿½Ô´ï¿½Ð¡Ð´
+    "StoreageKeyPrefix": "", // ï¿½æ´¢ï¿½ï¿½Ç°×º
     "ImageOption": {
-      "Animation": true, // ÊÇ·ñÆôÓÃ¶¯»­
-      "FontSize": 36, // ×ÖÌå´óÐ¡
-      "Width": 150, // ÑéÖ¤Âë¿í¶È
-      "Height": 50, // ÑéÖ¤Âë¸ß¶È
-      "BubbleMinRadius": 5, // ÆøÅÝ×îÐ¡°ë¾¶
-      "BubbleMaxRadius": 10, // ÆøÅÝ×î´ó°ë¾¶
-      "BubbleCount": 3, // ÆøÅÝÊýÁ¿
-      "BubbleThickness": 1.0, // ÆøÅÝ±ßÑØºñ¶È
-      "InterferenceLineCount": 3, // ¸ÉÈÅÏßÊýÁ¿
-      "FontFamily": "kaiti", // °üº¬actionj,epilog,fresnel,headache,lexo,prefix,progbot,ransom,robot,scandal,kaiti
-      "FrameDelay": 300, // Ã¿Ö¡ÑÓ³Ù,Animation=trueÊ±ÓÐÐ§, Ä¬ÈÏ300
-      "BackgroundColor": "#ffffff", //  ¸ñÊ½: rgb, rgba, rrggbb, or rrggbbaa format to match web syntax, Ä¬ÈÏ#fff
-      "ForegroundColors": "", //  ÑÕÉ«¸ñÊ½Í¬BackgroundColor,¶à¸öÑÕÉ«¶ººÅ·Ö¸î£¬Ëæ»úÑ¡È¡¡£²»Ìî£¬¿ÕÖµ£¬ÔòÊ¹ÓÃÄ¬ÈÏÑÕÉ«¼¯
-      "Quality": 100, // Í¼Æ¬ÖÊÁ¿£¨ÖÊÁ¿Ô½¸ßÍ¼Æ¬Ô½´ó£¬gifµ÷ÕûÎÞÐ§¿ÉÄÜ»á¸ü´ó£©
-      "TextBold": true // ´ÖÌå
+      "Animation": true, // ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½
+      "FontSize": 36, // ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡
+      "Width": 150, // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
+      "Height": 50, // ï¿½ï¿½Ö¤ï¿½ï¿½ß¶ï¿½
+      "BubbleMinRadius": 5, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ë¾¶
+      "BubbleMaxRadius": 10, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+      "BubbleCount": 3, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      "BubbleThickness": 1.0, // ï¿½ï¿½ï¿½Ý±ï¿½ï¿½Øºï¿½ï¿½
+      "InterferenceLineCount": 3, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      "FontFamily": "kaiti", // ï¿½ï¿½ï¿½ï¿½actionj,epilog,fresnel,headache,lexo,prefix,progbot,ransom,robot,scandal,kaiti
+      "FrameDelay": 300, // Ã¿Ö¡ï¿½Ó³ï¿½,Animation=trueÊ±ï¿½ï¿½Ð§, Ä¬ï¿½ï¿½300
+      "BackgroundColor": "#ffffff", //  ï¿½ï¿½Ê½: rgb, rgba, rrggbb, or rrggbbaa format to match web syntax, Ä¬ï¿½ï¿½#fff
+      "ForegroundColors": "", //  ï¿½ï¿½É«ï¿½ï¿½Ê½Í¬BackgroundColor,ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Å·Ö¸î£¬ï¿½ï¿½ï¿½Ñ¡È¡ï¿½ï¿½ï¿½ï¿½ï¿½î£¬ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½
+      "Quality": 100, // Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Í¼Æ¬Ô½ï¿½ï¿½gifï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Ü»ï¿½ï¿½ï¿½ï¿½
+      "TextBold": true // ï¿½ï¿½ï¿½ï¿½
     }
   }
 }

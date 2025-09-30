@@ -28,6 +28,9 @@ using Sys.Application.Authorize.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Lazy.Captcha.Core;
 using Yitter.IdGenerator;
+using Slm.Utils.Core.Models;
+using Sys.Domain.User;
+using Slm.Auth.Jwt;
 
 
 namespace Sys.Application.Authorize;
@@ -53,16 +56,57 @@ public class AuthorizeService : IDynamicApi
     /// </summary>
     public ICaptcha _captcha => AbpLazyServiceProvider.LazyGetRequiredService<ICaptcha>();
 
+    /// <summary>
+    /// 用户
+    /// </summary>
+    public IUserRepository _userRepository => AbpLazyServiceProvider.LazyGetRequiredService<IUserRepository>();
+
 
     /// <summary>
     /// 登录
     /// </summary>
     /// <returns></returns>
-    public async Task<string> Login(InLoginDto dto)
+    public async Task<OutLoginDto> Login(InLoginDto dto)
     {
       
+        // 判断验证码
+        if (!_captcha.Validate(dto.VerifyId.ToString(), dto.VerifyCode))
+            throw ResultModel.Exception("验证码错误");
 
-        return "OK";
+        var user = await _userRepository.Login(dto.TenantCode, dto.Account);
+        if (user == null)
+            throw ResultModel.Exception("租户和账号不存在");
+
+        //判断是否禁用状态 todo
+
+        //判断密码   加密判断
+        user.Password = dto.Password;
+
+
+        var accessToken = JWTEncryption.Encrypt(new Dictionary<string, object>
+        {
+            { SlmClaimConst.UserId, user.Id },
+            { SlmClaimConst.TenantId, user.TenantId },
+            { SlmClaimConst.Account, user.Account },
+            { SlmClaimConst.RealName, user.RealName },
+            { SlmClaimConst.AccountType, user.AccountType },
+            { SlmClaimConst.OrgId, user.OrgId },
+        }, 120);
+
+        // 生成刷新Token令牌
+        var refreshToken = JWTEncryption.GenerateRefreshToken(accessToken);
+
+
+
+
+
+
+
+        return new OutLoginDto
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken
+        };
     }
 
 
@@ -71,11 +115,11 @@ public class AuthorizeService : IDynamicApi
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    public async Task<OutCaptchaDto> GetCaptcha() 
+    public async Task<OutCaptchaDto> GetCaptcha()
     {
         var codeId = YitIdHelper.NextId().ToString();
         var captcha = _captcha.Generate(codeId);
-        return new OutCaptchaDto { Id = codeId, Img = "data:image/png;base64,"+captcha.Base64 };
+        return new OutCaptchaDto { Id = codeId, Img = "data:image/png;base64," + captcha.Base64 };
     }
 
 

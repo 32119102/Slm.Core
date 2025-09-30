@@ -1,5 +1,4 @@
-﻿using EasyCaching.Redis;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Slm.Utils.Core.ConfigurableOptions.Options;
 using System;
 using System.Collections.Generic;
@@ -16,14 +15,9 @@ public sealed class CacheOptions : IConfigurableOptions
 {
 
     /// <summary>
-    /// 缓存类型
+    /// 链接字符串
     /// </summary>
-    public string CacheType { get; set; }
-
-    /// <summary>
-    /// redis配置
-    /// </summary>
-    public RedisOptions Redis { get; set; }
+    public string? ConnectionString { get; set; }
 
 
 
@@ -31,15 +25,23 @@ public sealed class CacheOptions : IConfigurableOptions
 }
 
 
-public sealed class RedisOption : RedisOptions
-{
-    /// <summary>
-    /// 别名
-    /// </summary>
-    public string Name { get; set; }
+//public sealed class RedisOption : RedisOptions
+//{
+//    /// <summary>
+//    /// 别名
+//    /// </summary>
+//    public string Name { get; set; }
 
+//    /// <summary>
+//    /// 缓存类型
+//    /// </summary>
+//    public string CacheType { get; set; }
 
-}
+//    /// <summary>
+//    /// redis配置
+//    /// </summary>
+//    public RedisOptions Redis { get; set; }
+//}
 
 
 

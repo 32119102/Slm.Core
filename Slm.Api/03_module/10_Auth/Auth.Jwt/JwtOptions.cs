@@ -10,27 +10,52 @@ namespace Slm.Auth.Jwt;
 public class JwtOptions : IConfigurableOptions
 {
     /// <summary>
-    /// 加密密钥
+    /// 验证签发方密钥
     /// </summary>
-    public string Key { get; set; } = "twAJ$j5##pVc5*y&";
+    public bool? ValidateIssuerSigningKey { get; set; }
 
     /// <summary>
-    /// 发行人
+    /// 签发方密钥
     /// </summary>
-    public string Issuer { get; set; } = "http://www.baidu.com";
+    public string? IssuerSigningKey { get; set; }
 
     /// <summary>
-    /// 消费者
+    /// 验证签发方
     /// </summary>
-    public string Audience { get; set; } = "http://www.baidu.com";
+    public bool? ValidateIssuer { get; set; }
 
     /// <summary>
-    /// 令牌有效期(分钟，默认120)
+    /// 签发方
     /// </summary>
-    public int Expires { get; set; } = 120;
+    public string? ValidIssuer { get; set; }
 
     /// <summary>
-    /// 刷新令牌有效期(单位：天，默认7)
+    /// 验证签收方
     /// </summary>
-    public int RefreshTokenExpires { get; set; } = 7;
+    public bool? ValidateAudience { get; set; }
+
+    /// <summary>
+    /// 签收方
+    /// </summary>
+    public string? ValidAudience { get; set; }
+
+    /// <summary>
+    /// 验证生存期
+    /// </summary>
+    public bool? ValidateLifetime { get; set; }
+
+    /// <summary>
+    /// 过期时间容错值，解决服务器端时间不同步问题（秒）
+    /// </summary>
+    public long? ClockSkew { get; set; }
+
+    /// <summary>
+    /// 过期时间（分钟）
+    /// </summary>
+    public long? ExpiredTime { get; set; }
+
+    /// <summary>
+    /// 加密算法
+    /// </summary>
+    public string? Algorithm { get; set; }
 }
